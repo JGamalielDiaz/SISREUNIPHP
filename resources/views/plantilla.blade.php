@@ -92,11 +92,11 @@
                         <li class="active">
                             <a class="has-arrow" href="index.html">
 								   <span class="educate-icon educate-home icon-wrap"></span>
-								   <span class="mini-click-non">Education</span>
+								   <span class="mini-click-non">Gestion Estudiante</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href="{{ route('registro') }}"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
-                                <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
+                                <li><a title="Agregar Nuevo Estudiante" href="{{ route('registro') }}"><span class="mini-sub-pro">Nuevo Estudiante</span></a></li>
+                                <li><a title="Mostrar Informacion de los Estudiantes" href="index-1.html"><span class="mini-sub-pro">Listar Estudiantes</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>
                                 <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
                                 <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>

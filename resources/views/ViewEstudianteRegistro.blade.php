@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="row ">
-        <div class="col-md-10">
+        <div class="col-md-12 box">
             <form class="form-horizontal" action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
                 <div id="smartwizard">
                     <ul class="nav-justified"> 
@@ -24,10 +24,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <label for="lblNombre" class="col-sm-6 col-form-label">Nombres del Estudiante</label>
-                                              <div class="col-sm-10">
-                                                <input type="text" name="per_Nombre" id="txtNombres" Class="form-control" placeholder="Nombres"> 
-                                             </div>
+                                             <input type="text" name="per_Nombre" id="txtNombres" required="" > 
+                                             <label for="lblNombre" >Nombres del Estudiante</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -40,10 +38,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <label for="lblApellidos" class="col-sm-6 col-form-label">Apellidos del Estudiante</label>
-                                              <div class="col-sm-10">
-                                                 <input type="text" name="per_Apellido" id="txtApellidos" class="form-control" placeholder="Apellidos">
-                                              </div>
+                                                <input type="text" name="per_Apellido" id="txtApellidos" required="">
+                                                <label for="lblApellidos" class="col-sm-6 col-form-label">Apellidos del Estudiante</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -51,34 +47,24 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-1">
-                                            <br>
-                                        </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-1"><br></div>
+                                        <div class="col-md-4">
                                             <div class="form-group row">
-                                              <label for="lblGenero" class="col-sm-6 col-form-label">Seleccione el genero del estudiante</label>
+                                                <h6 class="col-sm-6 col-form-label">Seleccione el Genero</h6>
                                               <div class="col-sm-10">
                                                  <select name="Gen_ID" id="Per_Gen" class="form-control"></select>
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-1">
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <br>
-                                        </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
-                                              <label for="lblCarrera" class="col-sm-6 col-form-label">Seleccione La Carrera del Estudiante</label>
+                                              <h6 class="col-sm-8 col-form-label">Seleccione la Carrera del Estudiante</h6>
                                               <div class="col-sm-10">
                                                   <select name="Car_ID" id="Estu_IDCarrera" class="form-control"></select>
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-1">
+                                        <div class="col-md-3">
                                             <br>
                                         </div>
                                     </div>
@@ -88,10 +74,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <label for="lblCedula" class="col-sm-6 col-form-label">Ingrese la Cedula del Estudiante</label>
-                                              <div class="col-sm-10">
-                                                 <input type="text" name="Per_Identificacion" id="txtPer_Identificacion" class="form-control" placeholder="Cedula Estudiante" >  
-                                              </div>
+                                              <input type="text" name="Per_Identificacion" id="txtPer_Identificacion"  required="" >  
+                                              <label for="lblCedula" >Ingrese la Cedula del Estudiante</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -104,10 +88,9 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <label for="lblCarnetEstudiante" class="col-sm-6 col-form-label">Ingrese el Carnet Estudiantil</label>
-                                              <div class="col-sm-10">
-                                                 <input type="text" name="Estu_Carnet" id="txtEstu_Carnet" class="form-control" placeholder="Carnet Estudiantil">
-                                              </div>
+                                                <input type="text" name="Estu_Carnet" id="txtEstu_Carnet" required="">
+                                              <label for="lblCarnetEstudiante">Ingrese el Carnet Estudiantil</label>
+
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -120,7 +103,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <label for="lblCuarto" class="col-sm-6 col-form-label">Seleccione El Numero de Cuarto</label>
+                                              <h5 class="col-sm-6 col-form-label">Seleccione un Numero de Cuarto</h5>
                                               <div class="col-sm-10">
                                                   <select name="Cuar_ID" id="txtCuart_ID" class=" form-control selectpicker" data-style="btn-danger">
                                                   </select>
@@ -136,11 +119,10 @@
                                             <br>
                                         </div>
                                         <div class="col-md-8">
-                                            <div class="form-group row">
-                                                <label for="lbltelfono" class="col-sm-6 col-form-label">Numero de telefono (Opcional)</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" name="Tel_Descripcion" id="txt_Telefono" class="form-control" placeholder="Numero de Telefono">
-                                                </div>
+                                            <div class="form-group row">                                                
+                                             <input type="text" name="Tel_Descripcion" id="txt_Telefono" required="">
+                                             <label for="lbltelfono">Numero de telefono (Opcional)</label>
+
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -156,39 +138,55 @@
                                 <div class="panel-heading">Informacion Domicilio Estudiante</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-4">
                                             <div class="form-group row">
-                                              <label for="lblDepartamento" class="col-sm-6 col-form-label">Seleccione el Departamento del Estudiante</label>
+                                                <h6 class="col-sm-6 col-form-label">Seleccione el Departamento</h6>
                                               <div class="col-sm-10">
                                                   <select name="Dep_ID" id="txtDepartamento" class="form-control selectpicker"></select>
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                              <label for="lblMuni" class="col-sm-6 col-form-label">Seleccione el Municipio de origen del estudiante</label>
+                                              <h6 class="col-sm-6 col-form-label">Seleccione el Municipio</h6>
                                               <div class="col-sm-10">
-                                                  <select name="Mun_ID" id="txt_Mun"></select>
+                                                  <select name="Mun_ID" id="txt_Mun" class="form-control"></select>
                                               </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <br>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label for="lblCorreo" class="col-sm-6  col-form-label">Ingrese el Correo del Estudiante (Opcional)</label>
-                                              <div class="col-sm-10">
-                                                  <input type="text" name="Cor_Descripcion" class="form-control" id="txtCorreo" placeholder="Correo Electronico">
-                                              </div>
-                                            </div>
+                                        <div class="col-md-1">
+                                            <br>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                              <label for="lblDireccion" class="col-sm-6 col-form-label">Direccion de habitacion del Estudiante</label>
-                                              <div class="col-sm-10">
-                                                <input type="text" name="Direccion" id="txt_Direccion" class="form-control" placeholder="Direccion" aria-describedby="helpId">
-                                              </div>
+                                                <input type="text" name="Cor_Descripcion" id="txtCorreo" required="">
+                                                <label for="lblCorreo" >Ingrese el Correo del Estudiante</label>
                                             </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                              <input type="text" name="Direccion" id="txt_Direccion" required="">
+                                              <label for="lblDireccion" class="col-sm-10 col-form-label">Direccion de habitacion del Estudiante</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <br>
                                         </div>
                                     </div>
                                 </div>

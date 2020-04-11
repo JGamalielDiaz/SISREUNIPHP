@@ -1,57 +1,50 @@
-.Animat{
-	width: 50%;
-	position: relative;
-	height: 50px;
-	overflow: hidden;
 
+.box input{
+	padding: 10px 0;
+	margin-bottom: 30px;
 }
-
-.Animat input{
-
+.box input{
 	width: 100%;
-	height: 100%;
-	color: #595f6e;
-	padding-top: 20px;
+	box-sizing: border-box;
+	box-shadow: none;
+	outline: none;
 	border: none;
-	outline:none ;
+	border-bottom: 2px solid rgb(119, 115, 115);
 }
 
-.Animat label{
+.box input [type='submit']{
+	border-bottom: none;
+	cursor: pointer;
+	background: #f7497d;
+	color: #ffff;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+.box form div{
+	position: relative;
+}
+
+.box form div label{
 	position: absolute;
-	bottom: 0px;
+	top: 10px;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	color: #999;
+	transition: .5s;
 	pointer-events: none;
-	border-bottom: 1px solid black;
+	
 }
 
-.Animat label::after{
-	content: "";
-	position: absolute;
-	left: 0px;
-	bottom: -1px;
-	height: 100%;
-	width: 100%;
-	border-bottom: 3px solid #5fa8d3;
-	transition: transformX(-100%);
-	transition: transform 0.3s ease;
+.box input:focus ~ label,
+.box input:valid ~ label{
+	top: -12px;
+	left: 0;
+	color: #f7497d;
+	font-size: 12px;
+	font-weight: bold;
 }
 
-.content-name{
-	position: absolute;
-	bottom: 5px;
-	left: 0px;
-	transition: all 0.3s ease;
-}
-
-.Animat input:focus + .label-name .content-name, .Animat input:valid +
-	label-name .content-name{
-	transform: translateY(-150%);
-	font-size: 14px;
-	color: #5fa8d3;
-}
-
-.Animat input:focus + .label-name::after, .Animat input:valid + .label-name::after{
-	transform: translateX(0%);
+.box input:focus ,
+.box input:valid{
+	border-bottom: 2px solid #f7497d;
 }
