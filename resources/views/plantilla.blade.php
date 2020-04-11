@@ -60,12 +60,18 @@
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="plantillaPlugins/css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="plantillaPlugins/js/vendor/modernizr-2.8.3.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="plantillaPlugins/css/smart_wizard.css">
+	<link rel="stylesheet" type="text/css" href="plantillaPlugins/css/smart_wizard_theme_arrows.css">
+    <!-- modernizr JS
+        ============================================ -->
+        <script type="text/javascript">
+            var jQuery_382 = $.noConflict(true);
+            window.jQuery = jQuery_382;
+        </script>
+    <script src="plantillaPlugins/js/vendor/modernizr-2.8.3.min.js"></script>
+    
     @yield('Style')
-    <script src="plantillaPlugins/js/jquery.smartWizard"></script>
 
 </head>
 
@@ -1060,7 +1066,8 @@
 
     <!-- jquery
 		============================================ -->
-    <script src="plantillaPlugins/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        
     <!-- bootstrap JS
 		============================================ -->
     <script src="plantillaPlugins/js/bootstrap.min.js"></script>
@@ -1119,6 +1126,8 @@
     <!-- tawk chat JS
 		============================================ -->
     <script src="plantillaPlugins/js/tawk-chat.js"></script>
+
+    
 
     @yield('Scripts')
 

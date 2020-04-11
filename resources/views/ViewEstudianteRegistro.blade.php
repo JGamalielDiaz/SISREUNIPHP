@@ -1,22 +1,28 @@
 @extends('plantilla')
-
+@section('Style')
+<link rel="stylesheet" href="{{asset('plantillaPlugins/css/InputHolder.css')}}">
+@endsection
 @section('content')
     <div class="row ">
-        <div class="col-md-12">
-            <form action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
-                <div id="SmartWizard">
-                    <ul>
-                        <li> <a href="#InfoEstu">Informacion del Estudiante<br /><small>Datos Personales</small></a> </li>
-                        <li> <a href="#InfoContac">Informacìon de Contacto<br /><small>Datos para Contactar</small></a> </li>
-                        <li> <a href="#InfoDomi">Dirección(Nuevo)<br /><small>Domicilio del Estudiante</small></a> </li>
+        <div class="col-md-10">
+            <form class="form-horizontal" action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                <div id="smartwizard">
+                    <ul class="nav-justified"> 
+                        <li> <a href="#InfoEstudiante">Informacion del Estudiante<br /><small>Datos Personales</small></a> </li>
+                        <li> <a href="#InfoDomicilio">Informacìon de Contacto<br /><small>Datos para Contactar</small></a> </li>
                     </ul>
                     <div>
+                        <br>
+                        
                         <div id="InfoEstudiante">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">Registro Estudiante</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblNombre" class="col-sm-6 col-form-label">Nombres del Estudiante</label>
                                               <div class="col-sm-10">
@@ -24,7 +30,15 @@
                                              </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblApellidos" class="col-sm-6 col-form-label">Apellidos del Estudiante</label>
                                               <div class="col-sm-10">
@@ -32,9 +46,15 @@
                                               </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <br>
+                                        </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblGenero" class="col-sm-6 col-form-label">Seleccione el genero del estudiante</label>
                                               <div class="col-sm-10">
@@ -42,7 +62,15 @@
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblCarrera" class="col-sm-6 col-form-label">Seleccione La Carrera del Estudiante</label>
                                               <div class="col-sm-10">
@@ -50,9 +78,15 @@
                                               </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblCedula" class="col-sm-6 col-form-label">Ingrese la Cedula del Estudiante</label>
                                               <div class="col-sm-10">
@@ -60,7 +94,15 @@
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblCarnetEstudiante" class="col-sm-6 col-form-label">Ingrese el Carnet Estudiantil</label>
                                               <div class="col-sm-10">
@@ -68,9 +110,15 @@
                                               </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <br>
+                                        </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                               <label for="lblCuarto" class="col-sm-6 col-form-label">Seleccione El Numero de Cuarto</label>
                                               <div class="col-sm-10">
@@ -78,33 +126,109 @@
                                                   </select>
                                               </div>
                                             </div>
+                                        </div>  
+                                        <div class="col-md-3">
+                                            <br>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group row">
-                                                <label for="lbl"></label>
+                                                <label for="lbltelfono" class="col-sm-6 col-form-label">Numero de telefono (Opcional)</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="Tel_Descripcion" id="txt_Telefono" class="form-control" placeholder="Numero de Telefono">
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <br>
                                         </div>
                                     </div>
                                 </div>
                              </div>
-                        </div> 
+                        </div>
+
+                        <div id="InfoDomicilio">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Informacion Domicilio Estudiante</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                              <label for="lblDepartamento" class="col-sm-6 col-form-label">Seleccione el Departamento del Estudiante</label>
+                                              <div class="col-sm-10">
+                                                  <select name="Dep_ID" id="txtDepartamento" class="form-control selectpicker"></select>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label for="lblMuni" class="col-sm-6 col-form-label">Seleccione el Municipio de origen del estudiante</label>
+                                              <div class="col-sm-10">
+                                                  <select name="Mun_ID" id="txt_Mun"></select>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label for="lblCorreo" class="col-sm-6  col-form-label">Ingrese el Correo del Estudiante (Opcional)</label>
+                                              <div class="col-sm-10">
+                                                  <input type="text" name="Cor_Descripcion" class="form-control" id="txtCorreo" placeholder="Correo Electronico">
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label for="lblDireccion" class="col-sm-6 col-form-label">Direccion de habitacion del Estudiante</label>
+                                              <div class="col-sm-10">
+                                                <input type="text" name="Direccion" id="txt_Direccion" class="form-control" placeholder="Direccion" aria-describedby="helpId">
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>         
             </form>
         </div>
     </div>
-    @section('Scripts')
-        <script src="{{ asset ('pantillaPlugins/js/jquery.smartWizard.js')}}"></script>
+   
+@endsection
 
-        <script text="text/javascrip">
-
-        $(document).ready(function(){
+@section('Scripts')
 
 
-            alert('Soy un script Personalizado a la vista');
-        });
+<script src="{{asset('plantillaPlugins/js/jquery.smartWizard.min.js')}}"></script>
+<script text="text/javascript">
 
-        </script>
+   $(document).ready(function(){
 
-    @endsection
+        // Smart Wizard
+        $('#smartwizard').smartWizard({
+                    selected: 0,
+                    theme: 'arrows',
+                    transitionEffect:'fade'
+                 });
+
+           
+
+            $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
+                // Enable finish button only on last step
+                if(stepNumber == 3){
+                    $('.btn-finish').removeClass('disabled');
+                }else{
+                    $('.btn-finish').addClass('disabled');
+                }
+            });
+    });
+
+    </script>
+
 @endsection
