@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('plantilla');
 });
 
-Route::get('/registro', function () {
-    return view('ViewEstudianteRegistro');
-})->name('registro');
+
+
+Route::get('Cuar/{id}','EstudiantePost@getRoom');
+
+Route::get('registro','EstudiantePost@index')->name('registro');
+Route::post('registro','EstudiantePost@store')->name('EstuSave');
+Route::get('Mun/{id}','EstudiantePost@getMunicipio');
+Route::get('EstuList','EstudiantePost@getEstuInfo')->name('Listar');
+

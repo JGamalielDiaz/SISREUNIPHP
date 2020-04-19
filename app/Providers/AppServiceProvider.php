@@ -14,6 +14,12 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->bind(
+            'Repositories\Persona\IPersonaPost','Repositories\Persona\PersonaPost',
+            'Repositories\Estudiante\IEstudiantePost', 'Repositories\Estudiante\EstudiantePost',
+            'Repositories\Cuarto\IcuartoHistorial','Repositories\Cuarto\CuartoHistorialPost',
+            
+        );
     }
 
     /**

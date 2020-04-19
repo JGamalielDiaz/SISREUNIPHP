@@ -5,7 +5,13 @@
 @section('content')
     <div class="row ">
         <div class="col-md-12 box">
-            <form class="form-horizontal" action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <form class="form-horizontal" action="{{route('EstuSave')}}" id="myForm" role="form" method="post" accept-charset="utf-8">
+                @csrf
                 <div id="smartwizard">
                     <ul class="nav-justified"> 
                         <li> <a href="#InfoEstudiante">Informacion del Estudiante<br /><small>Datos Personales</small></a> </li>
@@ -13,7 +19,6 @@
                     </ul>
                     <div>
                         <br>
-                        
                         <div id="InfoEstudiante">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">Registro Estudiante</div>
@@ -25,7 +30,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group row">
                                              <input type="text" name="per_Nombre" id="txtNombres" required="" > 
-                                             <label for="lblNombre" >Nombres del Estudiante</label>
+                                             <label for="lblNombre" class="col-sm-6 col-form-label" >Nombres del Estudiante</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -52,7 +57,11 @@
                                             <div class="form-group row">
                                                 <h6 class="col-sm-6 col-form-label">Seleccione el Genero</h6>
                                               <div class="col-sm-10">
-                                                 <select name="Gen_ID" id="Per_Gen" class="form-control"></select>
+                                                 <select name="Gen_ID" id="Per_Gen" class="form-control">
+                                                     @foreach ($genero as $key => $value)
+                                                         <option value="{{$key}}">{{$value}}</option>
+                                                     @endforeach
+                                                 </select>
                                               </div>
                                             </div>
                                         </div>
@@ -60,7 +69,11 @@
                                             <div class="form-group row">
                                               <h6 class="col-sm-8 col-form-label">Seleccione la Carrera del Estudiante</h6>
                                               <div class="col-sm-10">
-                                                  <select name="Car_ID" id="Estu_IDCarrera" class="form-control"></select>
+                                                  <select name="Car_ID" id="Estu_IDCarrera" class="form-control">
+                                                      @foreach ($carrera as $key => $value)
+                                                          <option value="{{$key}}">{{$value}}</option>
+                                                      @endforeach
+                                                  </select>
                                               </div>
                                             </div>
                                         </div>
@@ -74,7 +87,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <input type="text" name="Per_Identificacion" id="txtPer_Identificacion"  required="" >  
+                                              <input type="text" name="per_Identificacion" id="txtPer_Identificacion"  required="" >  
                                               <label for="lblCedula" >Ingrese la Cedula del Estudiante</label>
                                             </div>
                                         </div>
@@ -88,7 +101,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                                <input type="text" name="Estu_Carnet" id="txtEstu_Carnet" required="">
+                                                <input type="text" name="est_Carnet" id="txtEstu_Carnet" required="">
                                               <label for="lblCarnetEstudiante">Ingrese el Carnet Estudiantil</label>
 
                                             </div>
@@ -105,8 +118,7 @@
                                             <div class="form-group row">
                                               <h5 class="col-sm-6 col-form-label">Seleccione un Numero de Cuarto</h5>
                                               <div class="col-sm-10">
-                                                  <select name="Cuar_ID" id="txtCuart_ID" class=" form-control selectpicker" data-style="btn-danger">
-                                                  </select>
+                                                <select name="Cuar_ID" id="txtCuart_ID" class=" form-control"></select>
                                               </div>
                                             </div>
                                         </div>  
@@ -145,7 +157,12 @@
                                             <div class="form-group row">
                                                 <h6 class="col-sm-6 col-form-label">Seleccione el Departamento</h6>
                                               <div class="col-sm-10">
-                                                  <select name="Dep_ID" id="txtDepartamento" class="form-control selectpicker"></select>
+                                                  <select name="Dep_ID" id="txtDepartamento" class="form-control selectpicker">
+                                                    
+                                                      @foreach ($departamentos as $key => $value)
+                                                        <option value="{{$key}}">{{$value}}</option>  
+                                                      @endforeach
+                                                  </select>
                                               </div>
                                             </div>
                                         </div>
@@ -153,7 +170,9 @@
                                             <div class="form-group">
                                               <h6 class="col-sm-6 col-form-label">Seleccione el Municipio</h6>
                                               <div class="col-sm-10">
-                                                  <select name="Mun_ID" id="txt_Mun" class="form-control"></select>
+                                                  <select name="Mun_ID" id="txt_Mun" class="form-control">
+                                                    
+                                                  </select>
                                               </div>
                                             </div>
                                         </div>
@@ -167,7 +186,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" name="Cor_Descripcion" id="txtCorreo" required="">
+                                                <input type="text" name="cor_Descripcion" id="txtCorreo" required="">
                                                 <label for="lblCorreo" >Ingrese el Correo del Estudiante</label>
                                             </div>
                                         </div>
@@ -181,8 +200,9 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                              <input type="text" name="Direccion" id="txt_Direccion" required="">
+                                              <input type="text" name="dir_Descripcion" id="txt_Direccion" required="">
                                               <label for="lblDireccion" class="col-sm-10 col-form-label">Direccion de habitacion del Estudiante</label>
+                                              <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -202,7 +222,7 @@
 
 @section('Scripts')
 
-
+<script src="{{asset('js/SelectDepMun.js')}}"></script>
 <script src="{{asset('plantillaPlugins/js/jquery.smartWizard.min.js')}}"></script>
 <script text="text/javascript">
 

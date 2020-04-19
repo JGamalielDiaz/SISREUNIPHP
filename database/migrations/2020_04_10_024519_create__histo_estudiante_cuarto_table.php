@@ -19,7 +19,7 @@ class CreateHistoEstudianteCuartoTable extends Migration
             $table->foreign('Est_ID')->references('Est_ID')->on('TBL_Estudiante');
             $table->unsignedInteger('Cuar_ID');
             $table->foreign('Cuar_ID')->references('Cuar_ID')->on('TBL_Cuarto');
-            $table->unsignedBigInteger('Usu_ID');
+            $table->unsignedBigInteger('Usu_ID')->nullable();
             $table->foreign('Usu_ID')->references('Usu_ID')->on('TBL_Usuario');
             $table->date('hisCuarto_FechaInicial');
             $table->date('hisCuarto_FechaFinal')->nullable();

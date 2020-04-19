@@ -62,7 +62,10 @@
     <link rel="stylesheet" href="plantillaPlugins/css/responsive.css">
 
     <link rel="stylesheet" type="text/css" href="plantillaPlugins/css/smart_wizard.css">
-	<link rel="stylesheet" type="text/css" href="plantillaPlugins/css/smart_wizard_theme_arrows.css">
+    <link rel="stylesheet" type="text/css" href="plantillaPlugins/css/smart_wizard_theme_arrows.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
+
     <!-- modernizr JS
         ============================================ -->
         <script type="text/javascript">
@@ -96,7 +99,7 @@
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Agregar Nuevo Estudiante" href="{{ route('registro') }}"><span class="mini-sub-pro">Nuevo Estudiante</span></a></li>
-                                <li><a title="Mostrar Informacion de los Estudiantes" href="index-1.html"><span class="mini-sub-pro">Listar Estudiantes</span></a></li>
+                                <li><a title="Mostrar Informacion de los Estudiantes" href="{{route('Listar')}}"><span class="mini-sub-pro">Listar Estudiantes</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>
                                 <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
                                 <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>

@@ -20,7 +20,7 @@ class CreatePersonaTable extends Migration
             $table->foreign('Gen_ID')->references('Gen_ID')->on('TBL_Genero');
             $table->string('per_Nombre',50);
             $table->string('per_Apellido',45);
-            $table->date('per_fechaNacimiento');
+            $table->date('per_fechaNacimiento')->nullable();
             $table->string('per_RutaImage')->nullable();
             $table->boolean('per_Estado');
             $table->timestamps();
