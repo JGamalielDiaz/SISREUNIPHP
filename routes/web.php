@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('Cuar/{id}','EstudiantePost@getRoom');
 
 Route::get('registro','EstudiantePost@index')->name('registro');
-Route::post('registro','EstudiantePost@store')->name('EstuSave');
+Route::post('/registroadd','EstudiantePost@store')->name('EstuSave');
 Route::get('Mun/{id}','EstudiantePost@getMunicipio');
 Route::get('EstuList','EstudiantePost@getEstuInfo')->name('Listar');
 

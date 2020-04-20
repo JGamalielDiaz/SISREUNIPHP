@@ -65,6 +65,7 @@
     <link rel="stylesheet" type="text/css" href="plantillaPlugins/css/smart_wizard_theme_arrows.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css\sweetalert2.min.css')}}">
 
     <!-- modernizr JS
         ============================================ -->

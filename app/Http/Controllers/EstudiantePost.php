@@ -61,9 +61,14 @@ class EstudiantePost extends Controller
 
     public function store (EstuStoreRequest $request){
 
-       $this->model->create($request->validated());
+        if ($request->ajax()) {
+            # code...
+            $this->model->create($request->validated());
+        }
 
-         return back();
+       
+
+         
     }
 
 }

@@ -10,7 +10,7 @@
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-            <form class="form-horizontal" action="{{route('EstuSave')}}" id="myForm" role="form" method="post" accept-charset="utf-8">
+            <form class="form-horizontal" action="{{route('EstuSave')}}" id="FormEstudent" role="form" method="post" accept-charset="utf-8">
                 @csrf
                 <div id="smartwizard">
                     <ul class="nav-justified"> 
@@ -202,7 +202,7 @@
                                             <div class="form-group">
                                               <input type="text" name="dir_Descripcion" id="txt_Direccion" required="">
                                               <label for="lblDireccion" class="col-sm-10 col-form-label">Direccion de habitacion del Estudiante</label>
-                                              <button type="submit" class="btn btn-primary">Submit</button>
+                                              <button type="submit" id="btn_Submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -224,28 +224,57 @@
 
 <script src="{{asset('js/SelectDepMun.js')}}"></script>
 <script src="{{asset('plantillaPlugins/js/jquery.smartWizard.min.js')}}"></script>
+<script src="{{asset('js\sweetalert2.min.js')}}"></script>
 <script text="text/javascript">
 
    $(document).ready(function(){
+        $.ajaxSetup({
+         headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+        });
+
+        $('#btn_Submit').click(function(event){
+
+            event.preventDefault();
+
+            $.ajax({
+
+                type: 'POST',
+                url: '/registroadd',
+                data: $('#FormEstudent').serialize(),
+                success: function (response){
+                    console.log(response);
+                    swal({
+                        title: 'Informacion Guardada!',
+                        timer: 1000,
+                        type: 'success',
+                        padding: '1em',
+                    });
+                },
+                error: function(error){
+                    console.log(error);
+                    alert('data no saved');
+                }
+            });
+        });
 
         // Smart Wizard
         $('#smartwizard').smartWizard({
-                    selected: 0,
-                    theme: 'arrows',
-                    transitionEffect:'fade'
-                 });
+            selected: 0,
+            theme: 'arrows',
+            transitionEffect:'fade'
+        });
 
            
 
-            $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
-                // Enable finish button only on last step
-                if(stepNumber == 3){
-                    $('.btn-finish').removeClass('disabled');
-                }else{
-                    $('.btn-finish').addClass('disabled');
-                }
-            });
-    });
+        $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
+            // Enable finish button only on last step
+            if(stepNumber == 3){
+                $('.btn-finish').removeClass('disabled');
+            }else{
+              $('.btn-finish').addClass('disabled');
+            }
+        });
+    });         
 
     </script>
 
