@@ -1,8 +1,8 @@
-@extends('plantilla')
+@extends('Layout/layout')
 @section('Style')
 <link rel="stylesheet" href="{{asset('plantillaPlugins/css/InputHolder.css')}}">
 @endsection
-@section('content')
+@section('Content')
     <div class="row ">
         <div class="col-md-12 box">
             <ul>
@@ -20,9 +20,9 @@
                     <div>
                         <br>
                         <div id="InfoEstudiante">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Registro Estudiante</div>
-                                <div class="panel-body">
+                            <div class="card card-primary">
+                                <div class="card-header bg-primary">Registro Estudiante</div>
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-1">
                                             <br>
@@ -146,9 +146,9 @@
                         </div>
 
                         <div id="InfoDomicilio">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Informacion Domicilio Estudiante</div>
-                                <div class="panel-body">
+                            <div class="card card-primary">
+                                <div class="card-heading">Informacion Domicilio Estudiante</div>
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-1">
                                             <br>

@@ -1,4 +1,4 @@
-@extends('plantilla')
+@extends('Layout/layout')
 
 @section('content')
     <table id="EstuList" class="table" style="width:100%">
