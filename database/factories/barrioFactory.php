@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(EntidadBarrio::class, function (Faker $faker) {
     return [
         //
-        'Mun_ID' => rand(4,23),
+        'Mun_ID' => rand(1,10),
         'bar_Nombre'=> $faker->city,
     ];
 });

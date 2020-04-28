@@ -16,7 +16,7 @@ class CreateFrecuenciaTable extends Migration
         Schema::create('TBL_Frecuencia', function (Blueprint $table) {
             $table->increments('Fre_ID');
             $table->string('fre_Nombre',100)->unique();
-            $table->boolean('fre_Estado');
+            $table->boolean('fre_Estado')->default(1);
             $table->timestamps();
         });
     }

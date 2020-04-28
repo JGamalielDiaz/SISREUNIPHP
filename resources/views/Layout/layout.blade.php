@@ -4,16 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>CORK Admin Template - Analytics Dashboard</title>
+    <title>Sistema de Residencia UNI</title>
     <link rel="icon" type="image/x-icon" href="{{asset('LayoutAssets/assets/img/favicon.ico')}}"/>
     <link href="{{asset('LayoutAssets/assets/css/loader.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{asset('LayoutAssets/assets/js/loader.js')}}"></script>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link href="{{asset('LayoutAssets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('LayoutAssets/assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{asset('plantillaPlugins\css\smart_wizard_theme_arrows.css')}}">
 
     @yield('Style')
 
@@ -22,6 +20,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="{{asset('LayoutAssets/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('LayoutAssets/assets/css/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -41,7 +40,7 @@
                 <li class="nav-item align-self-center page-heading">
                     <div class="page-header">
                         <div class="page-title">
-                            <h3>Analytics</h3>
+                            <h3>SISREUNI</h3>
                         </div>
                     </div>
                 </li>
@@ -200,7 +199,7 @@
                         </a>
                     </li>
                     <li class="nav-item theme-text">
-                        <a href="index.html" class="nav-link"> CORK </a>
+                        <a href="index.html" class="nav-link"> SISREUNI </a>
                     </li>
                     <li class="nav-item toggle-sidebar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left sidebarCollapse"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -212,7 +211,7 @@
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                <span>Dashboard</span>
+                                <span>Gestion Estudiante</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -220,10 +219,10 @@
                         </a>
                         <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
                             <li class="active">
-                                <a href="index.html"> Analytics </a>
+                                <a href="{{route("registro")}}"> Nuevo Estudiante </a>
                             </li>
                             <li>
-                                <a href="index2.html"> Sales </a>
+                                <a href="{{route("Listar")}}"> Listado de Estudiantes</a>
                             </li>
                         </ul>
                     </li>

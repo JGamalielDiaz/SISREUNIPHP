@@ -24,7 +24,7 @@ class CreateHistoEstudianteCuartoTable extends Migration
             $table->date('hisCuarto_FechaInicial');
             $table->date('hisCuarto_FechaFinal')->nullable();
             $table->string('hisCuarto_MotivoCambio',180)->nullable();
-            $table->boolean('hisCuarto_Estado');
+            $table->boolean('hisCuarto_Estado')->default(1);
             $table->timestamps();
         });
     }

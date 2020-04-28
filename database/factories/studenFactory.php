@@ -12,13 +12,10 @@ use Illuminate\Support\Str;
 $factory->define(EntidadEstudiante::class, function (Faker $faker) {
     return [
         //
-        'Est_ID' => rand(1,70),
+        'Est_ID' => $faker->unique()->numberBetween(1,900),
         'Car_ID' => rand(1,5),
         'est_Carnet'=> str::random(5),
         'est_FechaInicial' => $faker->date(),
         'est_FechaFinal'=> null,
-        'est_Estado' => 1,
-
-
     ];
 });

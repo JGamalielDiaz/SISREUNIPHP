@@ -16,7 +16,7 @@ class CreateTipoAreaResponsableTable extends Migration
         Schema::create('TBL_TipoArea_Responsable', function (Blueprint $table) {
             $table->increments('Area_ID');
             $table->string('area_Descripcion',40);
-            $table->boolean('area_Estado');
+            $table->boolean('area_Estado')->default(1);
             $table->timestamps();
         });
     }

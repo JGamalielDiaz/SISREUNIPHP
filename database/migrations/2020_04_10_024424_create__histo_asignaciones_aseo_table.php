@@ -17,12 +17,12 @@ class CreateHistoAsignacionesAseoTable extends Migration
             $table->id('HisAseo_ID');
             $table->unsignedBigInteger('RolAseo_ID');
             $table->foreign('RolAseo_ID')->references('RolAseo_ID')->on('TBL_AsignacionAseo');
-            $table->unsignedBigInteger('Usu_ID');
+            $table->unsignedBigInteger('Usu_ID')->nullable();
             $table->foreign('Usu_ID')->references('Usu_ID')->on('TBL_Usuario');
             $table->boolean('hisAseo_Cumple');
             $table->date('hisAseo_Fecha');
             $table->string('hisAseo_Descripcion',150);
-            $table->boolean('hisAseo_Estado');
+            $table->boolean('hisAseo_Estado')->default(1);
             $table->timestamps();
         });
     }

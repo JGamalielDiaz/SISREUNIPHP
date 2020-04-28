@@ -19,7 +19,7 @@ class CreateCarreraTable extends Migration
             $table->string('car_Descrip',190);
             $table->unsignedInteger('Rec_ID');
             $table->foreign('Rec_ID')->references('Rec_ID')->on('TBL_Recinto');
-            $table->boolean('car_Estado');
+            $table->boolean('car_Estado')->default(1);
             $table->timestamps();
         });
     }

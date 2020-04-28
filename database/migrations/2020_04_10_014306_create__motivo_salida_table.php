@@ -16,7 +16,7 @@ class CreateMotivoSalidaTable extends Migration
         Schema::create('TBL_MotivoSalida', function (Blueprint $table) {
             $table->id('Mot_ID');
             $table->string('mot_Descripcion',100);
-            $table->boolean('mot_Estado');
+            $table->boolean('mot_Estado')->default(1);
             $table->timestamps();
         });
     }

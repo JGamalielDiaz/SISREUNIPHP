@@ -20,7 +20,7 @@ class CreateEstudianteTable extends Migration
             $table->string('est_Carnet',10);
             $table->date('est_FechaInicial');
             $table->date('est_FechaFinal')->nullable();
-            $table->boolean('est_Estado');
+            $table->boolean('est_Estado')->default(1);
             $table->timestamps();
         });
     }

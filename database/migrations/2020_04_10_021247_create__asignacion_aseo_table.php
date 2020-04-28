@@ -28,7 +28,7 @@ class CreateAsignacionAseoTable extends Migration
             $table->date('rolAseo_FechaDeshabilitado')->nullable();
             $table->time('rolAseo_Hora')->nullable();
             $table->integer('rolAseo_Dia')->nullable();
-            $table->boolean('rolAseo_Estado');
+            $table->boolean('rolAseo_Estado')->default(1);
             $table->timestamps();
         });
     }

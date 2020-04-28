@@ -10,8 +10,8 @@ use Illuminate\Support\Str;
 $factory->define(EntidadTelefono::class, function (Faker $faker) {
     return [
         //
-        'Per_ID' => $faker->unique()->rand(1,100),
-        'tel_Numero' =>$faker->unique()->Str::random('8'),
+        'Per_ID' => $faker->unique()->numberBetween(1,700),
+        'tel_Numero' =>str::random(5),
         'tel_Estado' => 1,
     ];
 });

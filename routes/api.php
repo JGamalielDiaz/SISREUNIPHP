@@ -27,11 +27,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('EstuList',function(){
 
-
-    return Datatables( DB::table('TBL_Persona AS per')
-                        ->join('TBL_Estudiante AS estu','per.Per_ID','=','estu.Est_ID')
-                        ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','per.per_Identificacion','estu.est_Carnet')
-                        ->get())
+    $data = DB::table('TBL_Persona AS per')
+    ->join('TBL_Estudiante AS estu','per.Per_ID','=','estu.Est_ID')
+    ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','per.per_Identificacion','estu.est_Carnet')
+    ->get();
+    return Datatables($data)
+            ->addColumn('btn',function($data){
+                return '<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>';
+            })
+            ->rawColumns(['btn'])
             ->toJson();
 
 });

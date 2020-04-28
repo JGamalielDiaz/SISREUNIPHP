@@ -10,6 +10,7 @@ use App\EntidadMunicipio;
 use App\Http\Requests\EstuStoreRequest;
 use Illuminate\Http\Request;
 use Repositories\Persona\IPersonaPost;
+use Illuminate\Support\Facades\DB;
 
 class EstudiantePost extends Controller
 {
@@ -64,11 +65,29 @@ class EstudiantePost extends Controller
         if ($request->ajax()) {
             # code...
             $this->model->create($request->validated());
-        }
-
-       
-
-         
+        }   
     }
 
+    function getData(Request $request){
+
+        $id= $request->input('id');
+
+        $data = DB::table('TBL_Persona AS per')
+    ->join('TBL_Estudiante AS estu','per.Per_ID','=','estu.Est_ID')
+    ->where([
+        ['per.Per_ID','=',$id],
+        ['estu.Est_ID','=',$id]
+    ])
+    ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','per.per_Identificacion','estu.est_Carnet')
+    ->get();
+    return response()->json($data);
+    }
+
+    public function edit(Request $request, $id){
+
+        if ($request->ajax()) {
+            # code...
+            $this->model->update($request->validated(),$id);
+        }
+    }
 }

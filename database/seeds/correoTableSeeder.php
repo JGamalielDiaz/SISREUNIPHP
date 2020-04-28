@@ -13,6 +13,6 @@ class correoTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadCorreo::class,100)->create();
+        factory(EntidadCorreo::class,70)->create();
     }
 }

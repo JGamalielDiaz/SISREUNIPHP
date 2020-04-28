@@ -26,7 +26,7 @@ class CreateHisEstudianteSalEntraTable extends Migration
             $table->date('hisalida_FechaEstimada')->nullable();
             $table->boolean('hisalida_RegActivo');
             $table->string('hisalida_Descripcion',200);
-            $table->boolean('hisalida_Estado');
+            $table->boolean('hisalida_Estado')->default(1);
             $table->timestamps();
         });
 

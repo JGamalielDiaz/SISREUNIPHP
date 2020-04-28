@@ -19,7 +19,7 @@ class CreateResponsableTable extends Migration
             $table->foreign('Area_ID')->references('Area_ID')->on('TBL_TipoArea_Responsable');
             $table->date('res_FechaInicio');
             $table->date('res_FechaFinal')->nullable();
-            $table->boolean('res_Estado');
+            $table->boolean('res_Estado')->default(1);
             $table->timestamps();
         });
     }

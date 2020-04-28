@@ -17,8 +17,8 @@ class CreateCorreoTable extends Migration
             $table->id('Cor_ID');
             $table->unsignedInteger('Per_ID');
             $table->foreign('Per_ID')->references('Per_ID')->on('TBL_Persona');
-            $table->string('cor_Descripcion',25);
-            $table->boolean('cor_Estado');
+            $table->string('cor_Descripcion',50);
+            $table->boolean('cor_Estado')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateCorreoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_correo');
+        Schema::dropIfExists('TBL_Correo');
     }
 }

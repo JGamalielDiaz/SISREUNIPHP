@@ -26,3 +26,5 @@ Route::post('/registroadd','EstudiantePost@store')->name('EstuSave');
 Route::get('Mun/{id}','EstudiantePost@getMunicipio');
 Route::get('EstuList','EstudiantePost@getEstuInfo')->name('Listar');
 
+Route::get('student/getdata','EstudiantePost@getData')->name('student.getdata');
+Route::post('student/update','EstudiantePost@edit')->name('student.update');

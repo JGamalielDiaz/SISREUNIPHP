@@ -10,6 +10,6 @@ $factory->define(EntidadMunicipio::class, function (Faker $faker) {
     return [
         //
         'mun_Nombre' => $faker->unique()->city,
-        'Dep_ID' => rand(29,48),
+        'Dep_ID' => rand(1,10),
     ];
 });

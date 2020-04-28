@@ -22,7 +22,7 @@ class CreateTBLUsuarioTable extends Migration
             $table->date('usu_Ult_Ingreso');
             $table->date('usu_FechaInicial');
             $table->date('usu_FechaFinal')->nullable();
-            $table->boolean('usu_Estado');
+            $table->boolean('usu_Estado')->default(1);
             $table->timestamps();
         });
     }

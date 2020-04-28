@@ -13,6 +13,6 @@ class barriosTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadBarrio::class,100)->create();
+        factory(EntidadBarrio::class,20)->create();
     }
 }

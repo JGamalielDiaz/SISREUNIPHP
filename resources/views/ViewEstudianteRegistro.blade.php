@@ -1,6 +1,7 @@
 @extends('Layout/layout')
 @section('Style')
 <link rel="stylesheet" href="{{asset('plantillaPlugins/css/InputHolder.css')}}">
+<link rel="stylesheet" href="{{asset('css\smart_wizard_theme_dots.css')}}">
 @endsection
 @section('Content')
     <div class="row ">
@@ -18,8 +19,7 @@
                         <li> <a href="#InfoDomicilio">Informacìon de Contacto<br /><small>Datos para Contactar</small></a> </li>
                     </ul>
                     <div>
-                        <br>
-                        <div id="InfoEstudiante">
+                        <div id="InfoEstudiante"  class="">
                             <div class="card card-primary">
                                 <div class="card-header bg-primary">Registro Estudiante</div>
                                 <div class="card-body">
@@ -29,8 +29,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                             <input type="text" name="per_Nombre" id="txtNombres" required="" > 
-                                             <label for="lblNombre" class="col-sm-6 col-form-label" >Nombres del Estudiante</label>
+                                             <input type="text" class="inp" name="per_Nombre" id="txtNombres" required="" > 
+                                             <label for="lblNombre inl" class="col-sm-13 col-form-label" >Nombres del Estudiante</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -44,37 +44,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group row">
                                                 <input type="text" name="per_Apellido" id="txtApellidos" required="">
-                                                <label for="lblApellidos" class="col-sm-6 col-form-label">Apellidos del Estudiante</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-1"><br></div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <h6 class="col-sm-6 col-form-label">Seleccione el Genero</h6>
-                                              <div class="col-sm-10">
-                                                 <select name="Gen_ID" id="Per_Gen" class="form-control">
-                                                     @foreach ($genero as $key => $value)
-                                                         <option value="{{$key}}">{{$value}}</option>
-                                                     @endforeach
-                                                 </select>
-                                              </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group row">
-                                              <h6 class="col-sm-8 col-form-label">Seleccione la Carrera del Estudiante</h6>
-                                              <div class="col-sm-10">
-                                                  <select name="Car_ID" id="Estu_IDCarrera" class="form-control">
-                                                      @foreach ($carrera as $key => $value)
-                                                          <option value="{{$key}}">{{$value}}</option>
-                                                      @endforeach
-                                                  </select>
-                                              </div>
+                                                <label for="lblApellidos" class="">Apellidos del Estudiante</label>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -116,14 +86,41 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group row">
-                                              <h5 class="col-sm-6 col-form-label">Seleccione un Numero de Cuarto</h5>
-                                              <div class="col-sm-10">
-                                                <select name="Cuar_ID" id="txtCuart_ID" class=" form-control"></select>
-                                              </div>
+                                                <h6 class="col-sm-13 col-form-label">Seleccione el Genero</h6>
+                                              
+                                                 <select name="Gen_ID" id="Per_Gen" class="form-control selectpicker">
+                                                     @foreach ($genero as $key => $value)
+                                                         <option value="{{$key}}">{{$value}}</option>
+                                                     @endforeach
+                                                 </select>
+                                              
                                             </div>
-                                        </div>  
-                                        <div class="col-md-3">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
                                             <br>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group row">
+                                                <h6 class="col-sm-13 col-form-label">Seleccione Un Cuarto Para el Estudiante</h6>
+                                                <select name="Cuar_ID" id="txtCuart_ID" class=" form-control"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group row">
+                                                <h6 class="col-sm-13 col-form-label">Seleccione Carrera del Estudiante</h6>
+                                                <select name="Car_ID" id="Estu_IDCarrera" class="form-control">
+                                                    @foreach ($carrera as $key => $value)
+                                                        <option value="{{$key}}">{{$value}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -145,7 +142,7 @@
                              </div>
                         </div>
 
-                        <div id="InfoDomicilio">
+                        <div id="InfoDomicilio"  class="">
                             <div class="card card-primary">
                                 <div class="card-heading">Informacion Domicilio Estudiante</div>
                                 <div class="card-body">
@@ -260,8 +257,8 @@
         // Smart Wizard
         $('#smartwizard').smartWizard({
             selected: 0,
-            theme: 'arrows',
-            transitionEffect:'fade'
+            theme: 'dots',
+            transitionEffect:'fade',
         });
 
            

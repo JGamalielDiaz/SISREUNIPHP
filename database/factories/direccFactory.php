@@ -10,10 +10,9 @@ use Illuminate\Validation\Rules\Unique;
 $factory->define(EntidadDireccion::class, function (Faker $faker) {
     return [
         //
-        'Mun_ID' =>$faker->numberBetween($min = 4, $max = 23),
-        'Per_ID'=> $faker->numberBetween($min = 1, $max = 90),
+        'Mun_ID' =>$faker->numberBetween($min = 1, $max = 20),
+        'Per_ID'=> $faker->numberBetween($min = 1, $max = 80),
         'dir_Descripcion' => $faker->text(5),
-        'dir_Estado'=> 1,
 
     ];
 });

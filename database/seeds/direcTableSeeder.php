@@ -13,6 +13,6 @@ class direcTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadDireccion::class,50)->create();
+        factory(EntidadDireccion::class,80)->create();
     }
 }

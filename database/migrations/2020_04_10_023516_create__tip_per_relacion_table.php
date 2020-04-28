@@ -16,7 +16,7 @@ class CreateTipPerRelacionTable extends Migration
         Schema::create('TBL_TipoPerRelacion', function (Blueprint $table) {
             $table->id('TipoRe_ID');
             $table->string('tipoRe_Descripcion',100);
-            $table->boolean('tipoRe_Estado');
+            $table->boolean('tipoRe_Estado')->default(1);
             $table->timestamps();
         });
     }

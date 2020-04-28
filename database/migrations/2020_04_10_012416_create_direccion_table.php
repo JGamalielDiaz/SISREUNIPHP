@@ -20,7 +20,7 @@ class CreateDireccionTable extends Migration
             $table->unsignedInteger('Per_ID')->nullable();
             $table->foreign('Per_ID')->references('Per_ID')->on('TBL_Persona');
             $table->string('dir_Descripcion',170);
-            $table->boolean('dir_Estado');
+            $table->boolean('dir_Estado')->default(1);
             $table->timestamps();
         });
     }

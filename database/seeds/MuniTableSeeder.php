@@ -13,6 +13,6 @@ class MuniTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadMunicipio::class,20)->create();
+        factory(EntidadMunicipio::class,30)->create();
     }
 }

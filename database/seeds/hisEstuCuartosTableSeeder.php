@@ -13,6 +13,6 @@ class hisEstuCuartosTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadHisEstuCuarto::class,50)->create();
+        factory(EntidadHisEstuCuarto::class,900)->create();
     }
 }

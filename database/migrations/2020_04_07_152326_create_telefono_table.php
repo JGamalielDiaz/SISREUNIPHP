@@ -18,7 +18,7 @@ class CreateTelefonoTable extends Migration
             $table->unsignedInteger('Per_ID');
             $table->foreign('Per_ID')->references('Per_ID')->on('TBL_Persona');
             $table->string('tel_Numero',15);
-            $table->boolean('tel_Estado');
+            $table->boolean('tel_Estado')->default(1);
             $table->timestamps();
         });
     }

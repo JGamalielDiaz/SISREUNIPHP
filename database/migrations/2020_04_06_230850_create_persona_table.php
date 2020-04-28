@@ -22,7 +22,7 @@ class CreatePersonaTable extends Migration
             $table->string('per_Apellido',45);
             $table->date('per_fechaNacimiento')->nullable();
             $table->string('per_RutaImage')->nullable();
-            $table->boolean('per_Estado');
+            $table->boolean('per_Estado')->default(1);
             $table->timestamps();
         });
     }

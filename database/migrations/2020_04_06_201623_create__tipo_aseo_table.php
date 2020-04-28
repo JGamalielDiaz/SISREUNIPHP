@@ -18,7 +18,7 @@ class CreateTipoAseoTable extends Migration
             $table->string('tipoAseo_Nombre',25)->unique();
             $table->unsignedInteger('Fre_ID');
             $table->foreign('Fre_ID')->references('Fre_ID')->on('TBL_Frecuencia');
-            $table->boolean('tipoAseo_Estado');
+            $table->boolean('tipoAseo_Estado')->default(1);
             $table->timestamps();
         });
     }

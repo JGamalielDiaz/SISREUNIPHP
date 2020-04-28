@@ -1,7 +1,13 @@
 
 .box input{
-	padding: 10px 0;
-	margin-bottom: 30px;
+	padding: 5px 0;
+	padding-top: 15px;
+	margin-bottom: 4%;
+}
+
+.box select{
+
+	margin-bottom: 4%;
 }
 .box input{
 	width: 100%;
@@ -27,7 +33,7 @@
 
 .box form div label{
 	position: absolute;
-	top: 10px;
+	top: 1px;
 	left: 0;
 	color: #999;
 	transition: .5s;
