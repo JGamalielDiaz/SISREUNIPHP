@@ -35,10 +35,12 @@ class PersonaPost implements IPersonaPost{
 
     public function update(array $data, $id)
     {
-        return $this->getModel()->where('id',$id)->update($data);
+        // $Estudent = new EstudiantePost();
+        // $Estudent->update($data,$id);
+        $dataPer= ['per_Identificacion'=>$data['per_Identificacion']];
+        return $this->getModel()->where('Per_ID',$id)->update($dataPer);
 
-        $Estudent = new EstudiantePost();
-        $Estudent->update($data,$id);
+        
     }
 
     public function finById($id)

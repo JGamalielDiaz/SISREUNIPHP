@@ -27,4 +27,9 @@ Route::get('Mun/{id}','EstudiantePost@getMunicipio');
 Route::get('EstuList','EstudiantePost@getEstuInfo')->name('Listar');
 
 Route::get('student/getdata','EstudiantePost@getData')->name('student.getdata');
-Route::post('student/update','EstudiantePost@edit')->name('student.update');
+Route::post('student/update/{id}','EstudiantePost@edit');
+
+Route::get('calendar',function(){
+
+    return view('viewCalendarAsignaciones');
+})->name('calendarAsignacion');

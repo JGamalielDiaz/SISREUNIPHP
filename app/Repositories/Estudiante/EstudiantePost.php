@@ -30,7 +30,6 @@ class EstudiantePost implements IEstudiantePost {
             $Estudiante->est_Carnet = $data['est_Carnet'];
             $Estudiante->est_FechaInicial = $date->toDateString();
             $Estudiante->est_FechaFinal = null;
-            $Estudiante->est_Estado = true;
         $Estudiante->save();
 
         $HisCuarto= new CuartoHistorialPost();

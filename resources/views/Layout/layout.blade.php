@@ -10,7 +10,7 @@
     <script src="{{asset('LayoutAssets/assets/js/loader.js')}}"></script>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="{{asset('LayoutAssets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('LayoutAssets/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('LayoutAssets/assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
 
     @yield('Style')
@@ -20,7 +20,6 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="{{asset('LayoutAssets/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('LayoutAssets/assets/css/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>
@@ -223,6 +222,9 @@
                             </li>
                             <li>
                                 <a href="{{route("Listar")}}"> Listado de Estudiantes</a>
+                            </li>
+                            <li>
+                                <a href="{{route("calendarAsignacion")}}">Calendario de Asignaciones</a>
                             </li>
                         </ul>
                     </li>

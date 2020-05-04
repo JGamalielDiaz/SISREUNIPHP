@@ -1,12 +1,18 @@
 @extends('Layout/layout')
 @section('Style')
    {{-- <link rel="stylesheet" href="{{asset('plantillaPlugins/css/InputHolder.css')}}"> --}}
+ <link rel="stylesheet" href="{{asset('css/parsley.css')}}">
+ <link rel="stylesheet" href="{{asset('LayoutAssets/bootstrap/css/glyphicons.css')}}">
+ <link rel="stylesheet" type="text/css" href="LayoutAssets/plugins/table/datatable/datatables.css">
+ <link rel="stylesheet" type="text/css" href="LayoutAssets/plugins/table/datatable/custom_dt_html5.css">
+ <link rel="stylesheet" type="text/css" href="LayoutAssets/plugins/table/datatable/dt-global_style.css">
+ <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
 @section('Content')
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-sm-12"><br>
             
-             <table class="table table-hover" id="EstuList" style="width:100%">
+             <table class="table table-hover non-hover" id="EstuList" style="width:100%">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -14,7 +20,7 @@
                         <th>Apellidos </th>
                         <th>Identificacion</th>
                         <th>Carnet</th>
-                        <th>Acciones</th>
+                        <th class="no-exportar">Acciones</th>
                     </tr>
                 </thead>
             </table>
@@ -24,30 +30,7 @@
     
     <!-- Modal -->
 
-    <div class="row">
-        <div class="col-xs-1-12 box">
-             <form action="" role="form" method="post">
-                 <div>
-                     <div>
-                        <div class="row">
-                            <div class="col-md-1">
-                                <br>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group row">
-                                    <input type="text" name="per_Apellido" class="" id="txtApellidos" required="">
-                                    <label for="lblApellidos" class="">Apellidos del Estudiante</label>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <br>
-                            </div>
-                        </div>
-                     </div>
-                 </div>
-             </form>
-        </div>
-    </div>
+  
 
     <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -59,12 +42,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" role="form" method="post">
+                    <form id="studenEdit" accept-charset="utf-8">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="lblCarnet" class="col-form-label col-sm-10">Ingrese Carnet Estudiantil</label>
-                                    <input type="text" name="est_Carnet" id="txtCarnet" class="form-control" placeholder="Carnet Estudiantil">
+                                    <div class="col-md-8">
+                                        <input type="text" name="est_Carnet" id="txtCarnet" class="form-control">
+                                    </div>
+                                    
                                 </div>  
                             </div>
                         </div>
@@ -72,7 +59,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="lblCarnet" class="col-form-label col-sm-10">Ingrese Identificacion del Estudiante</label>
-                                    <input type="text" name="per_Identificacion" id="txtCedula" class="form-control" placeholder="Identificacion">
+                                    <input type="text" name="per_Identificacion" id="txtCedula" class="form-control">
                                 </div>  
                             </div>
                         </div>
@@ -80,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" id="btnEdit">Save</button>
                 </div>
             </div>
         </div>
@@ -89,30 +76,38 @@
 @endsection
 
 @section('Scripts')
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('LayoutAssets\assets\js\jquery.geturlparam.js')}}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script> --}}
+    <script src="{{asset('js/parsley.js')}}"></script>
+    <script src="{{asset('js/es.js')}}"></script>
+    <script src="LayoutAssets/plugins/table/datatable/datatables.js"></script>
+    <!-- NOTE TO Use Copy CSV Excel PDF Print Options You Must Include These Files  -->
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/dataTables.buttons.min.js"></script>
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/jszip.min.js"></script>    
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/buttons.html5.min.js"></script>
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/buttons.print.min.js"></script>
+    
     <script>
         $(document).ready(function() {
 
+            let id;
             $.ajaxSetup({
                 headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
             });
 
+            FillDataTable();
             //UPDATE DATATABLE
 
             $(document).on('click','.edit',function(e){
                 e.preventDefault();
-                let id= $(this).attr('id');
-                
+                id= $(this).attr('id');
 
                 $.ajax({
-
                     url: "{{route('student.getdata')}}",
                     method: 'GET',
                     data: {id:id},
                     dataType: 'json',
                     success: function(data){
-                        console.log(data);
+                        // console.log(data);
 
                         let dataAccess= data[0];
                         
@@ -128,18 +123,20 @@
             });
 
             //SaveUpdate
-
-            $('#btn_Submit').click(function(e){
+            $('#btnEdit').click(function(e){
 
                 e.preventDefault();
-
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+              
                 $.ajax({
-                    url: "{{route('student.update')}}:",
+                    
+                    url: "student/update/"+id,
                     method: 'POST',
-                    data:{request:$('#editForm').serialize(),id:id},
+                    data:$('#studenEdit').serialize(),
                     dataType:'json',
                     success: function(response){
                         console.log(response);
+                        FillDataTable();
                     },
                     error: function(error){
                         console.log(error);
@@ -147,24 +144,42 @@
                 });
             });
 
+            
 
-            //DATATABLE
-            $('#EstuList').DataTable({
-                
-                "serverSide": true,
-                "ajax":"{{url('api/EstuList')}}",
-                "pageLength": 20,
-                "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
-                "columns":[
-                    {data: 'Per_ID'},
-                    {data: 'per_Nombre'},
-                    {data : 'per_Apellido'},
-                    {data: 'per_Identificacion'},
-                    {data: 'est_Carnet'},
-                    {data: 'btn',orderable:false, searchable:false}
+            function FillDataTable(){
+                //DATATABLE
+                $('#EstuList').DataTable({
+                    // dom:"<'row'<'col-md-6'l>>",
+                    dom: '<"row"<"col-md-6"l>><"row"<"col-md-12"<"row"<"col-md-6"B><"col-md-6"f> > ><"col-md-12"rt> <"col-md-12"<"row"<"col-md-5"i><"col-md-7"p>>>>',
+                    buttons: {
+                        buttons: [
+                            { extend: 'copy', className: 'btn' },
+                            { extend: 'csv', className: 'btn' },
+                            { extend: 'excel', className: 'btn' },
+                            { extend: 'print', className: 'btn' }
+                        ]
+                    },
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                    },
+                    "pageLength": 20,
+                    "lengthMenu": [[10, 20, 50,-1],[10, 20, 50,'All']],
+                    "serverSide": true,
+                    destroy:true,
+                    "ajax":"{{url('api/EstuList')}}",
                     
-                ]
-            });  
+                    "columns":[
+                        {data: 'Per_ID'},
+                        {data: 'per_Nombre'},
+                        {data : 'per_Apellido'},
+                        {data: 'per_Identificacion'},
+                        {data: 'est_Carnet'},
+                        {data: 'btn',orderable:false, searchable:false}
+                        
+                    ]
+                });  
+
+            }
         });
     </script>
 @endsection

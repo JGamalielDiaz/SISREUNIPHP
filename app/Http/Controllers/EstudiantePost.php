@@ -8,6 +8,7 @@ use App\EntidadDepartamento;
 use App\EntidadGenero;
 use App\EntidadMunicipio;
 use App\Http\Requests\EstuStoreRequest;
+use App\Http\Requests\EstuUpdateRequest;
 use Illuminate\Http\Request;
 use Repositories\Persona\IPersonaPost;
 use Illuminate\Support\Facades\DB;
@@ -83,11 +84,13 @@ class EstudiantePost extends Controller
     return response()->json($data);
     }
 
-    public function edit(Request $request, $id){
+    public function edit(EstuUpdateRequest $request,$id){
 
         if ($request->ajax()) {
             # code...
-            $this->model->update($request->validated(),$id);
+           $data =$this->model->update($request->validated(),$id);
+
+           return response()->json($data);
         }
     }
 }
