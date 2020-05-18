@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $.ajaxSetup({
+        headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+    });
 
     // Get the modal
     var modal = document.getElementById("addEventsModal");
@@ -127,14 +130,31 @@ $(document).ready(function() {
 
     /* initialize the calendar
     -----------------------------------------------------------------*/
-
-    var calendar = $('#calendar').fullCalendar({
+    
+    var datosJson="";
+    $.ajax({
+        type: "GET",
+        url: "EventCalendar",
+        dataType: "json",
+        async:false,
+        contentType:'application/json; charset=utf-8',
+        success: function (datos) {
+            datosJson=datos;
+            console.log(datos)
+        },error:function(){
+            console.log(error);
+            
+        }
+    });
+    
+     calendar = $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        events: [
+        events:datosJson,
+        /*[
             {
                 id: 'event-1',
                 title: 'All Day Event',
@@ -142,98 +162,10 @@ $(document).ready(function() {
                 end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-02T14:30:00',
                 className: "bg-danger",
                 description: 'Aenean fermentum quam vel sapien rutrum cursus. Vestibulum imperdiet finibus odio, nec tincidunt felis facilisis eu. '
-            },
-            {
-                id: 'event-2',
-                title: 'Long Event',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-07T19:30:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-09T14:30:00',
-                className: "bg-primary",
-                description: 'Etiam a odio eget enim aliquet laoreet. Vivamus auctor nunc ultrices varius lobortis.'
-            },
-            {
-                id: 'event-3',
-                title: 'Conference',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-17T14:30:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-18T14:30:00',
-                className: "bg-warning",
-                description: 'Proin et consectetur nibh. Mauris et mollis purus. Ut nec tincidunt lacus. Nam at rutrum justo, vitae egestas dolor. '
-            },
-            {
-                id: 'event-4',
-                title: 'Meeting',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-12T10:30:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-13T10:30:00',
-                className: "bg-danger",
-                description: 'Mauris ut mauris aliquam, fringilla sapien et, dignissim nisl. Pellentesque ornare velit non mollis fringilla.'
-            },
-            {
-                id: 'event-5',
-                title: 'Lunch',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-12T15:00:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-13T15:00:00',
-                className: "bg-warning",
-                description: 'Integer fermentum bibendum elit in egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.'
-            },
-            {
-                id: 'event-6',
-                title: 'Meeting',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-12T21:30:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-13T21:30:00',
-                className: "bg-success",
-                description: 'Curabitur facilisis vel elit sed dapibus. Nunc sagittis ex nec ante facilisis, sed sodales purus rhoncus. Donec est sapien, porttitor et feugiat sed, eleifend quis sapien. Sed sit amet maximus dolor.'
-            },
-            {
-                id: 'event-7',
-                title: 'Happy Hour',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-12T05:30:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-13T05:30:00',
-                className: "bg-warning",
-                description: 'Morbi odio lectus, porttitor molestie scelerisque blandit, hendrerit sed ex. Aenean malesuada iaculis erat, vitae blandit nisl accumsan ut.'
-            },
-            {
-                id: 'event-8',
-                title: 'Dinner',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-12T20:00:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-13T20:00:00',
-                className: "bg-danger",
-                description: 'Sed purus urna, aliquam et pharetra ut, efficitur id mi. Pellentesque ut convallis velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
-                id: 'event-9',
-                title: 'Click for Designreset',
-                url: 'http://designreset.com/',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-27T20:00:00',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-28T20:00:00',
-                className: "bg-success",
-                description: 'Sed purus urna, aliquam et pharetra ut, efficitur id mi. Pellentesque ut convallis velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
-                id: 'event-10',
-                title: 'new event',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-24T08:12:14',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('default') +'-27T22:20:20',
-                className: "bg-danger",
-                description: 'Sed purus urna, aliquam et pharetra ut, efficitur id mi. Pellentesque ut convallis velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
-                id: 'event-12',
-                title: 'Other new',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('dec') +'-13T08:12:14',
-                end: newDate.getFullYear() + '-' + getDynamicMonth('dec') +'-16T22:20:20',
-                className: "bg-primary",
-                description: 'Pellentesque ut convallis velit. Sed purus urna, aliquam et pharetra ut, efficitur id mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
-                id: 'event-13',
-                title: 'Upcoming Event',
-                start: newDate.getFullYear() + '-'+ getDynamicMonth('inc') +'-15T08:12:14',
-                end: newDate.getFullYear() + '-'+ getDynamicMonth('inc') +'-18T22:20:20',
-                className: "bg-primary",
-                description: 'Pellentesque ut convallis velit. Sed purus urna, aliquam et pharetra ut, efficitur id mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            }
+            },*/
+            
 
-        ],
+        
         editable: true,
         eventLimit: true,
         eventMouseover: function(event, jsEvent, view) {
