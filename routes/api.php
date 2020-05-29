@@ -52,6 +52,7 @@ Route::get('RolesPendientes',function(){
     ->join('tbl_tipoaseo as tipAseo','asigA.TipoAseo_ID','=','tipAseo.TipoAseo_ID')
     ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','tipAseo.tipoAseo_Nombre')
     ->get();
+    
     return Datatables($data)->addColumn('btn',function($data){
         return '<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>';
     })
