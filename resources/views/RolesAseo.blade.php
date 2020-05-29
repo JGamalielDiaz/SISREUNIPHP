@@ -51,111 +51,32 @@
                      <span class="close">&times;</span>
 
                      <div class="add-edit-event-box">
-                         <div class="add-edit-event-content">
-                             <h5 class="add-event-title modal-title">Aseo Para el Cuarto 15</h5>
-                             <h5 class="edit-event-title modal-title">Edit Events</h5>
+                        <div class="add-edit-event-content">
+                             <h5 class="add-event-title modal-title"><h5> <strong>Aseo Para el Cuarto 15</strong></h5>
+                             <h5 class="edit-event-title modal-title"></h5>
                              <div>
-                                 <table class="table table-bordered">
+                                 <table class="table table-bordered" id="table_data">
                                      <tr>
-                                         <th>Nombres</th>
-                                         <th>Apellidos</th>
-                                         <th>Asignacion</th>
-                                         <th>Cumplimiento</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Joaquin Gamaliel</td>
-                                        <td>Ordoñez Diaz</td>
-                                        <td>Limpieza de Cuarto</td>
-                                        <td> <input type="checkbox"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Juan Carlos</td>
-                                        <td>Ordoñez Diaz</td>
-                                        <td>Limpieza de Ventanas</td>
-                                        <td> <input type="checkbox"> </td>
-                                    </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Nombres</th>
+                                                <th>Apellidos</th>
+                                                <th>Tipo Aseo</th>
+                                                <th>Cumplimiento</th>
+                                            </tr>
+                                            
+                                      </thead>
+                                     </tr>
+                                  
+                                     
+                                 <tbody>
+                                     
+                                 </tbody>
                                  </table>
                              </div>
                            <!--  
                              <form class="">
-
-                                 <div class="row">
-
-                                   <div class="col-md-12">
-                                         <label for="start-date" class="">Event Title:</label>
-                                         <div class="d-flex event-title">
-                                             <input id="write-e" type="text" placeholder="Enter Title" class="form-control" name="task">
-                                         </div>
-                                     </div>
-
-                                     <div class="col-md-6 col-sm-6 col-12">
-                                         <div class="form-group start-date">
-                                             <label for="start-date" class="">From:</label>
-                                             <div class="d-flex">
-                                                 <input id="start-date" placeholder="Start Date" class="form-control" type="text">
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 col-sm-6 col-12">
-                                         <div class="form-group end-date">
-                                             <label for="end-date" class="">To:</label>
-                                             <div class="d-flex">
-                                                 <input id="end-date" placeholder="End Date" type="text" class="form-control">
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-
-                                 <div class="row">
-                                     <div class="col-md-12">
-                                         <label for="start-date" class="">Event Description:</label>
-                                         <div class="d-flex event-description">
-                                             <textarea id="taskdescription" placeholder="Enter Description" rows="3" class="form-control" name="taskdescription"></textarea>
-                                         </div>
-                                     </div>
-                                 </div>
-
-                                 <div class="row">
-                                     <div class="col-md-12">
-                                         <div class="event-badge">
-                                             <p class="">Badge:</p>
-
-                                             <div class="d-sm-flex d-block">
-                                                 <div class="n-chk">
-                                                     <label class="new-control new-radio radio-primary">
-                                                     <input type="radio" class="new-control-input" name="marker" value="bg-primary">
-                                                     <span class="new-control-indicator"></span>Work
-                                                     </label>
-                                                 </div>
-
-                                                 <div class="n-chk">
-                                                     <label class="new-control new-radio radio-warning">
-                                                     <input type="radio" class="new-control-input" name="marker" value="bg-warning">
-                                                     <span class="new-control-indicator"></span>Travel
-                                                     </label>
-                                                 </div>
-
-                                                 <div class="n-chk">
-                                                     <label class="new-control new-radio radio-success">
-                                                     <input type="radio" class="new-control-input" name="marker" value="bg-success">
-                                                     <span class="new-control-indicator"></span>Personal
-                                                     </label>
-                                                 </div>
-
-                                                 <div class="n-chk">
-                                                     <label class="new-control new-radio radio-danger">
-                                                     <input type="radio" class="new-control-input" name="marker" value="bg-danger">
-                                                     <span class="new-control-indicator"></span>Important
-                                                     </label>
-                                                 </div>
-                                             </div>
-
-                                         </div>
-                                     </div>
-                                 </div>
-
-                             </form>
-                         </div>
+                          
                           -->
                      </div>
                    
@@ -172,9 +93,7 @@
          </div>
 
      </div>
-
- </div>
- 
+     </div>
 @endsection
 @section('Scripts')
 
@@ -187,6 +106,54 @@
      <script src="{{asset('LayoutAssets/plugins/fullcalendar/moment.min.js')}}"></script>
      <script src="{{asset('LayoutAssets/plugins/flatpickr/flatpickr.js')}}"></script>
      <script src="{{asset('LayoutAssets/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
+
+
+     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script> --}}
+    <script src="{{asset('js/parsley.js')}}"></script>
+    <script src="{{asset('js/es.js')}}"></script>
+    <script src="LayoutAssets/plugins/table/datatable/datatables.js"></script>
+    <!-- NOTE TO Use Copy CSV Excel PDF Print Options You Must Include These Files  -->
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/dataTables.buttons.min.js"></script>
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/jszip.min.js"></script>    
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/buttons.html5.min.js"></script>
+    <script src="LayoutAssets/plugins/table/datatable/button-ext/buttons.print.min.js"></script>
+     <script>
+         $(document).ready(function () {
+            FillDataTable();
+            function FillDataTable(){
+                //DATATABLE
+                $('#table_data').DataTable({
+                    // dom:"<'row'<'col-md-6'l>>",
+                    dom: '<"row"<"col-md-6"l>><"row"<"col-md-12"<"row"<"col-md-6"B><"col-md-6"f> > ><"col-md-12"rt> <"col-md-12"<"row"<"col-md-5"i><"col-md-7"p>>>>',
+                    buttons: {
+                        buttons: [
+                            { extend: 'copy', className: 'btn' },
+                            { extend: 'csv', className: 'btn' },
+                            { extend: 'excel', className: 'btn' },
+                            { extend: 'print', className: 'btn' }
+                        ]
+                    },
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                    },
+                    "pageLength": 20,
+                    "lengthMenu": [[10, 20, 50,-1],[10, 20, 50,'All']],
+                    "serverSide": true,
+                    destroy:true,
+                   
+                    "ajax":"{{url('api/RolesPendientes')}}",
+                    "columns":[
+                        {data: 'per_Nombre'},
+                        {data: 'per_Apellido'},
+                        {data:'tipoAseo_Nombre'},
+                       { data: 'btn',orderable:false, searchable:false}
+
+                    
+                    ]
+                });  
+            }
+         });
+     </script>
      
      <!-- END PAGE LEVEL SCRIPTS -->
      
@@ -194,10 +161,6 @@
      <script src="{{asset('LayoutAssets/plugins/fullcalendar/custom-fullcalendar.advance.js')}}"></script>
      
      <!--  END CUSTOM SCRIPTS FILE  -->
-
-
-
     @endsection
 
    
-
