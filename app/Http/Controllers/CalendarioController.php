@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\EntidadEvento;
 
+
 class CalendarioController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class CalendarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {  
         return view('RolesAseo');
     }
 
@@ -25,7 +26,6 @@ class CalendarioController extends Controller
      */
     public function EventCalendar()
     {
-        //$eventos=EntidadEvento::pluck('title','start','end','className','description')->all();
         $eventos=EntidadEvento::get();
         return response()->json($eventos);
     }
@@ -72,7 +72,7 @@ class CalendarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
