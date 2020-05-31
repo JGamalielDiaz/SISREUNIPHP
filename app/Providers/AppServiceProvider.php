@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'Repositories\Persona\IPersonaPost','Repositories\Persona\PersonaPost',
             'Repositories\Estudiante\IEstudiantePost', 'Repositories\Estudiante\EstudiantePost',
-            'Repositories\Cuarto\IcuartoHistorial','Repositories\Cuarto\CuartoHistorialPost',
+            'Repositories\Cuarto\IcuartoHistorial','Repositories\Cuarto\CuartoHistorialPost'
             
         );
     }
