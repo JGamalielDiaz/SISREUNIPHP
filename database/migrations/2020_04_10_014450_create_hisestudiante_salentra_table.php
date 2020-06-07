@@ -33,7 +33,7 @@ class CreateHisEstudianteSalEntraTable extends Migration
         Schema::table('TBL_HisEstudianteSalida', function ( $table) {
             $table->foreign('Est_ID')->references('Est_ID')->on('TBL_Estudiante');
             $table->foreign('Mot_ID')->references('Mot_ID')->on('TBL_MotivoSalida');
-            $table->foreign('Usu_ID')->references('Usu_ID')->on('TBL_Usuario');
+            $table->foreign('Usu_ID')->references('id')->on('users');
         });
     }
 

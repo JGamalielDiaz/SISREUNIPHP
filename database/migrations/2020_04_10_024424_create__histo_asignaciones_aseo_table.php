@@ -18,7 +18,7 @@ class CreateHistoAsignacionesAseoTable extends Migration
             $table->unsignedBigInteger('RolAseo_ID');
             $table->foreign('RolAseo_ID')->references('RolAseo_ID')->on('TBL_AsignacionAseo');
             $table->unsignedBigInteger('Usu_ID')->nullable();
-            $table->foreign('Usu_ID')->references('Usu_ID')->on('TBL_Usuario');
+            $table->foreign('Usu_ID')->references('id')->on('users');
             $table->boolean('hisAseo_Cumple');
             $table->date('hisAseo_Fecha');
             $table->string('hisAseo_Descripcion',150);

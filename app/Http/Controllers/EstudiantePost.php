@@ -31,7 +31,7 @@ class EstudiantePost extends Controller
         $genero = EntidadGenero::getGenero();
 
         
-        return view('ViewEstudianteRegistro',compact('departamentos','carrera','genero'));
+        return view('Student.ViewEstudianteRegistro',compact('departamentos','carrera','genero'));
     }
 
     public function getMunicipio(Request $request, $id){
@@ -58,7 +58,7 @@ class EstudiantePost extends Controller
 
     public function getEstuInfo(){
 
-        return view('viewListadoEstu');
+        return view('Student.viewListadoEstu');
     }
 
     public function store (EstuStoreRequest $request){

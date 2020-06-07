@@ -16,7 +16,7 @@ class CreatePersonaTable extends Migration
         Schema::create('TBL_Persona', function (Blueprint $table) {
             $table->increments('Per_ID');
             $table->string('per_Identificacion',25)->nullable();
-            $table->unsignedInteger('Gen_ID');
+            $table->unsignedInteger('Gen_ID')->nullable();
             $table->foreign('Gen_ID')->references('Gen_ID')->on('TBL_Genero');
             $table->string('per_Nombre',50);
             $table->string('per_Apellido',45);

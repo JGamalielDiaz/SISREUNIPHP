@@ -29,7 +29,7 @@
                         <h1 class="">Sign In</h1>
                         <p class="">Inicia Sesion Para Continuar.</p>
                         
-                        <form class="text-left" method="POST" action="{{route('Login')}}">
+                        <form class="text-left" method="POST" action="{{route('login')}}">
                             @csrf
                             <div class="form">
                                 <div id="username-field" class="field-wrapper input ">

@@ -20,7 +20,7 @@ class CreateAsignacionAseoTable extends Migration
             $table->unsignedInteger('Fre_ID');
             $table->foreign('Fre_ID')->references('Fre_ID')->on('TBL_Frecuencia');
             $table->unsignedBigInteger('Usu_ID');
-            $table->foreign('Usu_ID')->references('Usu_ID')->on('TBL_Usuario');
+            $table->foreign('Usu_ID')->references('id')->on('users');
             $table->unsignedInteger('Est_ID');
             $table->foreign('Est_ID')->references('Est_ID')->on('TBL_Estudiante');
             $table->date('rolAseo_FechaInicial');
