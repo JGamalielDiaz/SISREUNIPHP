@@ -1,6 +1,6 @@
 <?php
 namespace App\Repositories;
-use App\EntidadGenero;
+use App\Models\EntidadGenero;
 
 class GeneroPost {
 

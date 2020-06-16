@@ -2,13 +2,9 @@
 .box input{
 	padding: 5px 0;
 	padding-top: 15px;
-	margin-bottom: 4%;
 }
 
-.box select{
 
-	margin-bottom: 4%;
-}
 .box input{
 	width: 100%;
 	box-sizing: border-box;
@@ -29,6 +25,7 @@
 
 .box form div{
 	position: relative;
+	margin-top: 10px;
 }
 
 .box form div label{
@@ -38,12 +35,13 @@
 	color: #999;
 	transition: .5s;
 	pointer-events: none;
+	margin-top: 12px;
 	
 }
 
 .box input:focus ~ label,
 .box input:valid ~ label{
-	top: -12px;
+	top: -25px;
 	left: 0;
 	color: #f7497d;
 	font-size: 12px;

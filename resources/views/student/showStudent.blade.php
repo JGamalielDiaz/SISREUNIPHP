@@ -102,7 +102,7 @@
                 id= $(this).attr('id');
 
                 $.ajax({
-                    url: "{{route('student.getdata')}}",
+                    url: "{{route('student.getData')}}",
                     method: 'GET',
                     data: {id:id},
                     dataType: 'json',

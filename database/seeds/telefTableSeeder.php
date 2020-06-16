@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadTelefono;
+use App\Models\EntidadTelefono;
 use Illuminate\Database\Seeder;
 
 class telefTableSeeder extends Seeder

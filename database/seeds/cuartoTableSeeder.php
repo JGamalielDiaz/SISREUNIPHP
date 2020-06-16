@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadCuarto;
+use App\Models\EntidadCuarto;
 use Illuminate\Database\Seeder;
 
 class cuartoTableSeeder extends Seeder

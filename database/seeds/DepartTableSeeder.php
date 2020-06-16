@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadDepartamento;
+use App\Models\EntidadDepartamento;
 use Illuminate\Database\Seeder;
 
 class DepartTableSeeder extends Seeder

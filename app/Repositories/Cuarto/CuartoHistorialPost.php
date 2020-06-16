@@ -2,7 +2,7 @@
 
 namespace Repositories\Cuarto;
 
-use App\EntidadHisEstuCuarto;
+use App\Models\EntidadHisEstuCuarto;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 

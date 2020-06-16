@@ -20,7 +20,9 @@
 
     <div class="form-container outer">
         @if (session()->has('flash'))
-            <div class="alert alert-info">{{ session('flash') }}</div>
+            <div class="alert alert-danger alert-dismissible">{{ session('flash') }}
+                <button type="button" class="close " data-dismiss="alert">&times;</button>
+            </div>
         @endif
         <div class="form-form">
             <div class="form-form-wrap">

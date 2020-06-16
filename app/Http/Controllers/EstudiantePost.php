@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\EntidadCarrera;
-use App\EntidadCuarto;
-use App\EntidadDepartamento;
-use App\EntidadGenero;
-use App\EntidadMunicipio;
+use App\Models\EntidadCarrera;
+use App\Models\EntidadCuarto;
+use App\Models\EntidadDepartamento;
+use App\Models\EntidadGenero;
+use App\Models\EntidadMunicipio;
 use App\Http\Requests\EstuStoreRequest;
 use App\Http\Requests\EstuUpdateRequest;
 use Illuminate\Http\Request;
@@ -21,6 +21,9 @@ class EstudiantePost extends Controller
 
     public function __construct(IPersonaPost $model){
 
+    
+        $this->middleware('auth');
+    
         $this->model = $model;
     }
 
@@ -31,7 +34,7 @@ class EstudiantePost extends Controller
         $genero = EntidadGenero::getGenero();
 
         
-        return view('Student.ViewEstudianteRegistro',compact('departamentos','carrera','genero'));
+        return view('student.createStudent',compact('departamentos','carrera','genero'));
     }
 
     public function getMunicipio(Request $request, $id){
@@ -58,15 +61,17 @@ class EstudiantePost extends Controller
 
     public function getEstuInfo(){
 
-        return view('Student.viewListadoEstu');
+        return view('student.showStudent');
     }
 
     public function store (EstuStoreRequest $request){
 
-        if ($request->ajax()) {
+        // if ($request->ajax()) {
             # code...
             $this->model->create($request->validated());
-        }   
+
+            return back()->with('Message', 'Registro Guardado Con Exito');
+        // }   
     }
 
     function getData(Request $request){

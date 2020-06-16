@@ -1,0 +1,38 @@
+.help-button{
+
+    position: fixed;
+    right: 0;
+    top: 35%;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
+}
+
+.glyphicon{
+   
+    color: white;
+    text-decoration: none;
+    padding: .7rem;
+    display: flex;
+    transition: all .5s;
+}
+
+.glyphicon-question-sign{
+    background:  #3498db ;
+}
+
+.glyphicon:first-child{
+    border-radius: 2rem 0 0 2rem;
+}
+
+.glyphicon:last-child{
+    border-radius: 2rem 0 0 2rem;
+}
+
+.glyphicon:hover{
+    padding-right: 3rem;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .42);
+}

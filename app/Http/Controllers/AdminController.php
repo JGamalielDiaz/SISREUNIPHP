@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use App\Http\Requests\UserCreateRequest;
 use Caffeinated\Shinobi\Models\Role;
 use Caffeinated\Shinobi\Models\Permission;
 use Illuminate\Http\Request;
-use App\Repositories\Persona\EntidadPersona;
-use Illuminate\Support\Arr;
+
 
 class AdminController extends Controller
 {
@@ -30,10 +29,7 @@ class AdminController extends Controller
     public function create()
     {
         //
-       $roles = Role::pluck('name','id');
-       $permission = Permission::get();
-
-       return view('admin.viewUserRol',compact('roles','permission'));
+    
     }
 
     /**
@@ -45,24 +41,7 @@ class AdminController extends Controller
     public function store(UserCreateRequest $request)
     {
         //
-        $persona= EntidadPersona::create($request->validated());
 
-        $addIdRequest= Arr::add($request->validated(),'Per_ID',$persona->id);
-        
-        
-        $cam= array_replace($addIdRequest,array('password'=> bcrypt($request->password)));
-
-        $user=User::create($cam);
-
-        $user->roles()->sync($request->get('roles'));
-
-        // $perID = $persona->id;
-        // $usuario = new User;
-        // $usuario->Per_ID = $perID;
-        // $usuario->name = $request->name;
-        // $usuario->email = $request->email;
-        // $usuario->password = bcrypt( $request->password);
-        // $usuario->save();
 
         return back();
     

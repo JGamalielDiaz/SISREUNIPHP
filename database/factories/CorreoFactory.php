@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\EntidadCorreo;
+use App\Models\EntidadCorreo;
 use App\Model;
 use Faker\Generator as Faker;
 

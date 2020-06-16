@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadHisEstuCuarto;
+use App\Models\EntidadHisEstuCuarto;
 use Illuminate\Database\Seeder;
 
 class hisEstuCuartosTableSeeder extends Seeder
@@ -13,6 +13,6 @@ class hisEstuCuartosTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadHisEstuCuarto::class,900)->create();
+        factory(EntidadHisEstuCuarto::class,200)->create();
     }
 }

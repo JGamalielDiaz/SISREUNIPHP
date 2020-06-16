@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\EntidadCuarto;
+use App\Models\EntidadCuarto;
 use App\Model;
 use Faker\Generator as Faker;
 use Illuminate\Validation\Rules\Unique;

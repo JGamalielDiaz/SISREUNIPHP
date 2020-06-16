@@ -13,9 +13,17 @@ class RolPermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
+        $roles= Role::get();
+
+        return view('role.showRole',compact('roles'));
     }
 
     /**
@@ -28,7 +36,7 @@ class RolPermissionController extends Controller
         //
         $permission = Permission::get();
 
-        return view('admin.viewRolPermission', compact('permission'));
+        return view('role.createRole', compact('permission'));
     }
 
     /**
@@ -45,7 +53,7 @@ class RolPermissionController extends Controller
 
         $role->permissions()->sync($request->get('permission'));
 
-        return redirect()->route('admin.RolRegister', $role->id)->with('Message','Rol Guardado Exitosamente');
+        return redirect()->route('roles.create', $role->id)->with('Message','Rol Guardado Exitosamente');
 
     }
 
@@ -66,9 +74,14 @@ class RolPermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
         //
+
+        $permissions = Permission::get();
+
+        return view('role.roleEdit',compact('role','permissions'));
+
     }
 
     /**
@@ -78,9 +91,14 @@ class RolPermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
         //
+        $role->update($request->all());
+
+        $role->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('roles.show',$role->id)->with('info','Rol Actualizado Con exito');
     }
 
     /**

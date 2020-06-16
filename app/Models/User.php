@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Caffeinated\Shinobi\Concerns\HasRolesAndPermissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

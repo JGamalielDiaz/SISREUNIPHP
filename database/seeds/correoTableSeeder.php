@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadCorreo;
+use App\Models\EntidadCorreo;
 use Illuminate\Database\Seeder;
 
 class correoTableSeeder extends Seeder

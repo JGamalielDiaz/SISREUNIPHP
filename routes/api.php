@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Repositories\Persona\PersonaPost;
+use Symfony\Component\VarDumper\Cloner\Data;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\QueryDataTable;
@@ -57,4 +58,18 @@ Route::get('RolesPendientes',function(){
     })
     ->rawColumns(['btn'])
     ->toJson();       
+});
+
+Route::get('editUser',function(){
+
+    $data = DB::table('tbl_persona AS per')
+    ->join('users', 'users.Per_ID','=','per.Per_ID')
+    ->select('per.Per_ID','per.per_Nombre','per_Apellido','users.name')
+    ->get();
+    return Datatables($data)->addColumn('btn',function($data){
+        return '<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>';
+    })
+    ->rawColumns(['btn'])
+    ->toJson();
+
 });

@@ -25,11 +25,11 @@ Route::post('Logout','Auth\LoginController@logout')->name('logout');
 //Rutas 
 
 //ModuloRegistro
-Route::get('registro','EstudiantePost@index')->name('student.Iregistro');
+Route::get('registro','EstudiantePost@index')->name('student.Iregistro')->middleware('can:student.Iregistro');
 Route::post('/registroadd','EstudiantePost@store')->name('student.store');
 
-Route::get('Cuar/{id}','EstudiantePost@getRoom')->name('student.getRoom');
-Route::get('Mun/{id}','EstudiantePost@getMunicipio')->name('student.getMunicipio');
+Route::get('Cuar/{id}','EstudiantePost@getRoom');
+Route::get('Mun/{id}','EstudiantePost@getMunicipio');
 
 
 
@@ -37,18 +37,36 @@ Route::get('Mun/{id}','EstudiantePost@getMunicipio')->name('student.getMunicipio
 Route::get('student/getdata','EstudiantePost@getData')->name('student.getData');
 
 //seccion Actualizar
-Route::get('EstuList','EstudiantePost@getEstuInfo')->name('student.Iedit');
+Route::get('EstuList','EstudiantePost@getEstuInfo')->name('student.Iedit')->middleware('can:student.Iedit');
 Route::post('student/update/{id}','EstudiantePost@edit')->name('student.Edit');
 
 //Seccion Eliminar
 
-Route::get('usuario','AdminController@create')->name('admin.UserRegister');
+//USUARIO
+Route::get('usuario','UserController@create')->name('user.create')->middleware('can:user.create');
 
-Route::post('usuario','AdminController@store')->name('admin.UserRegister');
+Route::post('usuario','UserController@store')->name('user.store');
 
-Route::get('rolPermission','RolPermissionController@create')->name('admin.RolRegister');
+Route::get('users/{user}/edit','UserController@edit')->name('users.edit')->middleware('can:users.edit');
 
-Route::post('roladd','RolPermissionController@store')->name('admin.Roladd');
+Route::put('users/{user}','UserController@update')->name('users.update');
+
+
+Route::get('users/show','UserController@index')->name('users.show')->middleware('can:users.show');
+
+
+//ROLES Y PERMISOS
+
+Route::get('rolPermission','RolPermissionController@create')->name('roles.create')->middleware('can:roles.create');
+
+Route::post('roladd','RolPermissionController@store')->name('role.store');
+
+Route::get('roles/show','RolPermissionController@index')->name('roles.show')->middleware('can:roles.show');
+
+Route::get('roles/{role}/edit','RolPermissionController@edit')->name('roles.edit')->middleware('can:roles.edit');
+
+Route::put('roles/{role}','RolPermissionController@update')->name('roles.update');
+
 
 //CALENDARIO ASIGNACIONES
 Route::get('RolesAseo','CalendarioController@index')->name('Asignaciones');

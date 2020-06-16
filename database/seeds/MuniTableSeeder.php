@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadMunicipio;
+use App\Models\EntidadMunicipio;
 use Illuminate\Database\Seeder;
 
 class MuniTableSeeder extends Seeder

@@ -31,7 +31,7 @@ class UserCreateRequest extends FormRequest
             'roles'=> 'required',
             'password'=> 'required',
             'name'=> 'required',
-            'permission'=> 'required',
+            // 'permission'=> 'required',
             'email' => 'required'
         ];
     }

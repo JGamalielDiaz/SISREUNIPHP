@@ -1,6 +1,6 @@
 <?php
 
-use App\EntidadCarrera;
+use App\Models\EntidadCarrera;
 use Illuminate\Database\Seeder;
 
 class CarrerTableSeeder extends Seeder

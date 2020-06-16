@@ -22,10 +22,12 @@ $(document).ready(function(){
         });
     });
 
-    $('#Per_Gen').on('change', function() {
-      var idc = $('#Per_Gen').val();
-
+    $('#txtGenero').on('change', function() {
+   
+      var idc = $('#txtGenero').val();
       console.log(idc);
+      console.log('holaaaa');
+
 
       loadSelectRoom(idc);
       
@@ -33,6 +35,7 @@ $(document).ready(function(){
 
   function loadSelectRoom(idc){
 
+    
     $.ajax({
       url: "Cuar/"+idc,
       type: "GET",
@@ -42,9 +45,9 @@ $(document).ready(function(){
       }, 
       success: function(respuesta){
         console.log(respuesta);
-        $("#txtCuart_ID").html('<option value="" selected="true"> Seleccione una opción </option>');
+        $("#txtCuarto").html('<option value="" selected="true"> Seleccione una opción </option>');
           respuesta.forEach(element => {
-          $('#txtCuart_ID').append('<option value='+element.Cuar_ID+'> '+element.cuar_Numero+' </option>');
+          $('#txtCuarto').append('<option value='+element.Cuar_ID+'> '+element.cuar_Numero+' </option>');
         });
       }
     });
