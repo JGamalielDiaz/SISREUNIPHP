@@ -25,10 +25,10 @@ class EstuStoreRequest extends FormRequest
     {
         return [
             //
-            'per_Identificacion' => 'required',
+            'per_Identificacion' => 'required|unique:tbl_persona,per_Identificacion',
             'Gen_ID'=> 'required',
             'Car_ID' => 'required',
-            'est_Carnet' => 'required',
+            'est_Carnet' => 'required|unique:tbl_estudiante,est_Carnet',
             'Mun_ID' => 'required',
             'Cuar_ID' => 'required',
             'cor_Descripcion' => 'required',

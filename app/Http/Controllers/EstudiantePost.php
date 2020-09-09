@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Repositories\Persona\IPersonaPost;
 use Illuminate\Support\Facades\DB;
 
+
 class EstudiantePost extends Controller
 {
     //
@@ -29,12 +30,14 @@ class EstudiantePost extends Controller
 
     public function index(){
 
-        $departamentos = EntidadDepartamento::pluck('dep_Nombre','Dep_Id');
-        $carrera = EntidadCarrera::getCarrera();
-        $genero = EntidadGenero::getGenero();
+        // $departamentos = EntidadDepartamento::pluck('dep_Nombre','Dep_Id');
+        // $carrera = EntidadCarrera::getCarrera();
+        // $genero = EntidadGenero::getGenero();
 
         
-        return view('student.createStudent',compact('departamentos','carrera','genero'));
+        // return view('student.createStudent',compact('departamentos','carrera','genero'));
+
+        throw new \App\Exceptions\StudenException('Problemas al cargar la pagina');
     }
 
     public function getMunicipio(Request $request, $id){

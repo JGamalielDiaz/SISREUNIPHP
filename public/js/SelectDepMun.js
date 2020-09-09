@@ -4,6 +4,7 @@ $(document).ready(function(){
         var id = $('#txtDepartamento').val();
 
         // console.log(id);
+        
 
         $.ajax({
           url: "Mun/"+id,

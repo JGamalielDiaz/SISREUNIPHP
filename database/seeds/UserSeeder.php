@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\EntidadHisEstuCuarto;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class hisEstuCuartosTableSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class hisEstuCuartosTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadHisEstuCuarto::class,250)->create(); 
+        factory(User::class,1)->create();
     }
 }

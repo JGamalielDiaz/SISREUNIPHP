@@ -9,6 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(EntidadGenero::class, function (Faker $faker) {
     return [
         //
-        'gen_Nombre'
+        'gen_Nombre'=> $faker->unique()->text(10)
+        
     ];
 });

@@ -9,13 +9,19 @@
 @endsection
 
 @section('Content')
+
+    
     <div class="row ">
         <div class="col-md-12 box">
             
             @if ($errors->any())
                 <ul>
                  @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li>
+                        <div class="alert alert-danger alert-dismissible">{{ $error }}
+                            <button type="button" class="close " data-dismiss="alert">&times;</button>
+                        </div>
+                    </li>
                  @endforeach
                 </ul>
                 

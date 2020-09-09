@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function index()
     {
-        //
+        
         $users = DB::table('tbl_persona AS per')
                     ->join ('users','users.Per_ID','=','per.Per_ID')
                     ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','users.id')

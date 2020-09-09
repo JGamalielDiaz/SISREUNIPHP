@@ -9,8 +9,8 @@ use Faker\Generator as Faker;
 $factory->define(EntidadHisEstuCuarto::class, function (Faker $faker) {
     return [
         //
-        'Est_ID'=> $faker->unique()->numberBetween(1,200),
-        'Cuar_ID' =>$faker->numberBetween(1,20),
+        'Est_ID'=> $faker->unique()->numberBetween(1,250),
+        'Cuar_ID' =>$faker->numberBetween(1,25),
         'hisCuarto_FechaInicial'=> $faker->date(),
         'hisCuarto_FechaFinal' => null,
         'hisCuarto_MotivoCambio'=> $faker->text(20),

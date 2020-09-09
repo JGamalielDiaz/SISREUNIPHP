@@ -15,3 +15,4 @@ $factory->define(EntidadCarrera::class, function (Faker $faker) {
 
     ];
 });
+ 

@@ -13,6 +13,6 @@ class cuartoTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadCuarto::class,20)->create();
+        factory(EntidadCuarto::class,25)->create();
     }
 }

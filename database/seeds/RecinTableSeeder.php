@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\EntidadRecinto;
 use Illuminate\Database\Seeder;
 
 class RecinTableSeeder extends Seeder
@@ -12,5 +13,6 @@ class RecinTableSeeder extends Seeder
     public function run()
     {
         //
+        factory(EntidadRecinto::class,3)->create();
     }
 }

@@ -8,10 +8,10 @@ use Faker\Generator as Faker;
 use Illuminate\Validation\Rules\Unique;
 
 $factory->define(EntidadDireccion::class, function (Faker $faker) {
-    return [
-        //
+    return [ 
+        //x
         'Mun_ID' =>$faker->numberBetween($min = 1, $max = 20),
-        'Per_ID'=> $faker->numberBetween($min = 1, $max = 80),
+        'Per_ID'=> $faker->unique()->numberBetween(1,80),
         'dir_Descripcion' => $faker->text(5),
 
     ];

@@ -26,6 +26,10 @@
     @yield('Style')
 </head>
 <body>
+    
+    
+    
+
     <!-- BEGIN LOADER -->
     <div id="load_screen"> <div class="loader"> <div class="loader-content">
         <div class="spinner-grow align-self-center"></div>
@@ -349,6 +353,8 @@
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
+                
+                
                 @yield('Content')
 
 
