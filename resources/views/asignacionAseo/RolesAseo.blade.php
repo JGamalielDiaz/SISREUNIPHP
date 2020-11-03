@@ -207,7 +207,7 @@ function CargarAseoCuarto(start, end, numero, title)
                 {data: 'full_name'},
                 {data:'tipoAseo_Nombre'},
                 {data:'cuar_Numero'},
-                {data:'select'}
+                {data:'btnEstado'}
                 
             ], 
             "language":{
