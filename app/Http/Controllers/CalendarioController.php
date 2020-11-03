@@ -63,8 +63,8 @@ class CalendarioController extends Controller
             ->select('estu.Est_ID','hisAseo_Cumple','asigA.RolAseo_ID','tipAseo.tipoAseo_Nombre','cua.cuar_Numero','rolAseo_Estado', DB::raw('CONCAT(per.per_nombre , " ", per.per_Apellido) AS full_name'))
             ->get();
             return Datatables($data)
-            ->addColumn('select','asignacionAseo.btnTablesEstado')
-            ->rawColumns(['select'])
+            ->addColumn('btnEstado','asignacionAseo.btnTablesEstado')
+            ->rawColumns(['btnEstado'])
             ->toJson();       
         }
     }
