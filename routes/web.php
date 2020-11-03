@@ -71,7 +71,9 @@ Route::put('roles/{role}','RolPermissionController@update')->name('roles.update'
 //CALENDARIO ASIGNACIONES
 Route::get('RolesAseo','CalendarioController@index')->name('Asignaciones');
 Route::get('EventCalendar','CalendarioController@EventCalendar');
-
+Route::get('AsigancionCuarto/{fechaInicial}/{fechafinal}/{id}','CalendarioController@showRolesCuarto')->name('RolesPorCuarto.cuaNumero');
+//Route::get('DetalleAseo/{Cua_ID}/{asig_ID}','CalendarioController@show');
+Route::get('Cumplimiento/{asigID}','CalendarioController@verificarCumplimiento');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
