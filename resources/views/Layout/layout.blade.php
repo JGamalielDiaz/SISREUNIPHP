@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Sistema de Residencia UNI</title>
     <link rel="icon" type="image/x-icon" href="{{asset('LayoutAssets/assets/img/favicon.ico')}}"/>
+    <link href="{{asset('LayoutAssets/assets/css/modal.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('LayoutAssets/assets/css/loader.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{asset('LayoutAssets/assets/js/loader.js')}}"></script>
 
@@ -22,6 +23,8 @@
     <link href="{{asset('LayoutAssets/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('LayoutAssets/assets/css/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="LayoutAssets/assets/css/forms/theme-checkbox-radio.css">
+    <!-- Se agrega una referencia a Fontaweson, para usar iconos -->
+    <script src="https://kit.fontawesome.com/6f35b79a88.js" crossorigin="anonymous"></script>
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @yield('Style')
 </head>
