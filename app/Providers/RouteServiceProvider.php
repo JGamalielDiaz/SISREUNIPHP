@@ -47,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         //
+        $this->mapEstudianteRoute();
+        $this->maprolPermissionRoute();
+        $this->mapUserRoute();
+        $this->mapAsignacionAseroRoute();
     }
 
     /**
@@ -56,6 +60,36 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    protected function mapEstudianteRoute()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/estudianteRoute.php'));
+    }
+
+    protected function maprolPermissionRoute()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/rolPermissionRoute.php'));
+    }
+
+    protected function mapUserRoute()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/userRoute.php'));
+    }
+
+    protected function mapAsignacionAseroRoute()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/asignacionAseoRoute.php'));
+    }
+
+
     protected function mapWebRoutes()
     {
         Route::middleware('web')

@@ -2,11 +2,11 @@
 @section('Style')
     
     <!-- BEGIN PAGE LEVEL STYLE -->
-    <link href="LayoutAssets/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="LayoutAssets/plugins/fullcalendar/custom-fullcalendar.advance.css" rel="stylesheet" type="text/css" />
-    <link href="LayoutAssets/plugins/flatpickr/flatpickr.css" rel="stylesheet" type="text/css">
-    <link href="LayoutAssets/plugins/flatpickr/custom-flatpickr.css" rel="stylesheet" type="text/css">
-    <link href="LayoutAssets/assets/css/forms/theme-checkbox-radio.css" rel="stylesheet" type="text/css" />
+    <link href="{{("css/fullcalendar/fullcalendar.css")}}" rel="stylesheet" type="text/css" />
+    <link href="{{("css/fullcalendar/custom-fullcalendar.advance.css")}}" rel="stylesheet" type="text/css" />
+    <link href="{{("css/fullcalendar/flatpickr.css")}}" rel="stylesheet" type="text/css">
+    <link href="{{("css/fullcalendar/custom-flatpickr.css")}}" rel="stylesheet" type="text/css">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('css/datatable/datatables.css')}}"> --}}
     <!-- END PAGE LEVEL STYLE -->
 @endsection
 @section('Content')
@@ -78,22 +78,27 @@
 @endsection
 @section('Scripts')
 
-     <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    
-     <script src="{{asset('LayoutAssets/plugins/fullcalendar/moment.min.js')}}"></script>
-     <script src="{{asset('LayoutAssets/plugins/flatpickr/flatpickr.js')}}"></script>
-     <script src="{{asset('LayoutAssets/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="{{asset('js/fullcalendar/moment.min.js')}}"></script>
+    <script src="{{asset('js/fullcalendar/flatpickr.js')}}"></script>
+    <script src="{{asset('js/fullcalendar/fullcalendar.min.js')}}"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
+    <script src="{{asset('js/fullcalendar/custom-fullcalendar.advance.js')}}"></script>
+    <!--  END CUSTOM SCRIPTS FILE  -->
 
 
-     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script> --}}
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script> --}}
     <script src="{{asset('js/parsley.js')}}"></script>
     <script src="{{asset('js/es.js')}}"></script>
-    <script src="LayoutAssets/plugins/table/datatable/datatables.js"></script>
+    <script src="{{asset('js/datatables.js')}}"></script>
     <!-- NOTE TO Use Copy CSV Excel PDF Print Options You Must Include These Files  -->
-    <script src="LayoutAssets/plugins/table/datatable/button-ext/dataTables.buttons.min.js"></script>
-    <script src="LayoutAssets/plugins/table/datatable/button-ext/jszip.min.js"></script>    
-    <script src="LayoutAssets/plugins/table/datatable/button-ext/buttons.html5.min.js"></script>
-    <script src="LayoutAssets/plugins/table/datatable/button-ext/buttons.print.min.js"></script>
+    <script src="{{asset('js/button-ext/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('js/button-ext/jszip.min.js')}}"></script>    
+    <script src="{{asset('js/button-ext/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('js/button-ext/buttons.print.min.js')}}"></script>
 <!--<script>
    
 </script> -->

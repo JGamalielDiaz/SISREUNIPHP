@@ -20,6 +20,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\SecureHeaders::class,
+
     ];
 
     /**
@@ -65,5 +67,6 @@ class Kernel extends HttpKernel
         'has.role' => \Caffeinated\Shinobi\Middleware\UserHasRole::class,
         'has.permission'=>\Caffeinated\Shinobi\Middleware\UserHasRole::class,
         'has.permission' => \Illuminate\Auth\Middleware\Authorize::class,
+        // 'secure.header' => App\Http\Middleware\SecureHeaders::class
     ];
 }

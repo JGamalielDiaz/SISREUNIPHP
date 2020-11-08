@@ -1,18 +1,12 @@
 @extends('Layout/layout')
 
 @section('Style')
-    {{-- <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-    <link href="{{asset('packages/core/main.css')}}" rel='stylesheet' />
-    <link href="{{asset('packages/bootstrap/main.css')}}" rel='stylesheet' />
-    <link href="{{asset('packages/timegrid/main.css')}}" rel='stylesheet' />
-    <link href="{{asset('packages/daygrid/main.css')}}" rel='stylesheet' />
-    <link href="{{asset('packages/list/main.css')}}" rel='stylesheet' /> --}}
     <!-- BEGIN PAGE LEVEL STYLE -->
-    <link href="LayoutAssets/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="LayoutAssets/plugins/fullcalendar/custom-fullcalendar.advance.css" rel="stylesheet" type="text/css" />
-    <link href="LayoutAssets/plugins/flatpickr/flatpickr.css" rel="stylesheet" type="text/css">
-    <link href="LayoutAssets/plugins/flatpickr/custom-flatpickr.css" rel="stylesheet" type="text/css">
-    <link href="LayoutAssets/assets/css/forms/theme-checkbox-radio.css" rel="stylesheet" type="text/css" />
+    <link href="{{("css/fullcalendar/fullcalendar.css")}}" rel="stylesheet" type="text/css" />
+    <link href="{{("css/fullcalendar/custom-fullcalendar.advance.css")}}" rel="stylesheet" type="text/css" />
+    <link href="{{("css/fullcalendar/flatpickr.css")}}" rel="stylesheet" type="text/css">
+    <link href="{{("css/fullcalendar/custom-flatpickr.css")}}" rel="stylesheet" type="text/css">
+    {{-- <link href="{{("LayoutAssets/assets/css/forms/theme-checkbox-radio.css")}}" rel="stylesheet" type="text/css" /> --}}
     <!-- END PAGE LEVEL STYLE -->
 @endsection
 
@@ -161,20 +155,14 @@
 
 @section('Scripts')
 
-    {{-- <script src="{{asset('packages/core/main.js')}}"></script>
-    <script src="{{asset('packages/interaction/main.js')}}"></script>
-    <script src="{{asset('packages/bootstrap/main.js')}}"></script>
-    <script src="{{asset('packages/daygrid/main.js')}}"></script>
-    <script src="{{asset('packages/timegrid/main.js')}}"></script>
-    <script src="{{asset('packages/list/main.js')}}"></script> --}}
 
-     <!-- BEGIN PAGE LEVEL SCRIPTS -->
-     <script src="{{asset('LayoutAssets/plugins/fullcalendar/moment.min.js')}}"></script>
-     <script src="{{asset('LayoutAssets/plugins/flatpickr/flatpickr.js')}}"></script>
-     <script src="{{asset('LayoutAssets/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
-     <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+     <script src="{{asset('js/fullcalendar/moment.min.js')}}"></script>
+     <script src="{{asset('js/fullcalendar/flatpickr.js')}}"></script>
+     <script src="{{asset('js/fullcalendar/fullcalendar.min.js')}}"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
  
-     <!--  BEGIN CUSTOM SCRIPTS FILE  -->
-     <script src="{{asset('LayoutAssets/plugins/fullcalendar/custom-fullcalendar.advance.js')}}"></script>
-     <!--  END CUSTOM SCRIPTS FILE  -->
+    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
+     <script src="{{asset('js/fullcalendar/custom-fullcalendar.advance.js')}}"></script>
+    <!--  END CUSTOM SCRIPTS FILE  -->
 @endsection

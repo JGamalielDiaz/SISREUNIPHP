@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use App\Exceptions\StudenException;
 
 class Handler extends ExceptionHandler
 {
@@ -51,15 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-
-        if ($exception instanceof StudenException) {
-
-            return $exception->render($request);
-            # code...
-        }
         if ($exception instanceof  \Illuminate\Auth\AuthenticationException) {
             # code...
-            return redirect('/')->with('flash','Para Ingresar Inicia Sesion');
+            return redirect('/')->with('flash','Para Ingresar, Inicia Sesion');
         }
         return parent::render($request, $exception);
     }

@@ -1,0 +1,54 @@
+
+.box input{
+	padding: 5px 0;
+	padding-top: 15px;
+}
+
+
+.box input{
+	width: 100%;
+	box-sizing: border-box;
+	box-shadow: none;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid rgb(119, 115, 115);
+}
+
+.box input [type='submit']{
+	border-bottom: none;
+	cursor: pointer;
+	background: #2a6dff;
+	color: #ffff;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+.box form div{
+	position: relative;
+	margin-top: 10px;
+}
+
+.box form div label{
+	position: absolute;
+	top: 1px;
+	left: 0;
+	color: #999;
+	transition: .5s;
+	pointer-events: none;
+	margin-top: 12px;
+	
+}
+
+.box input:focus ~ label,
+.box input:valid ~ label{
+	top: -25px;
+	left: 0;
+	color: #2a6dff;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.box input:focus ,
+.box input:valid{
+	border-bottom: 2px solid #2a6dff;;
+}

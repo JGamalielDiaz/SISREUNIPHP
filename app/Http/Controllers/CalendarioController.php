@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use App\EntidadEvento;
-use Http;
-
-
+use Illuminate\Support\Facades\DB;
 
 class CalendarioController extends Controller
 {

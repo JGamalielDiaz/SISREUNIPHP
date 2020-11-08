@@ -1,6 +1,6 @@
 <div class="form-group">
   {{Form::label('name','Nombre de Usuario')}}
-  {{Form::text('name',null, ['class'=>'form-control'])}}
+  {{Form::text('username',null, ['class'=>'form-control'])}}
 </div>
 
 <hr>

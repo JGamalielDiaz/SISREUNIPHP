@@ -1,8 +1,7 @@
 <?php
 
-use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Database\Seeder;
-
+use Caffeinated\Shinobi\Models\Role;
 
 class RoleSeeder extends Seeder
 {

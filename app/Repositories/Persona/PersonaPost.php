@@ -35,22 +35,41 @@ class PersonaPost implements IPersonaPost{
 
     public function update(array $data, $id)
     {
-        // $Estudent = new EstudiantePost();
-        // $Estudent->update($data,$id);
-        $dataPer= ['per_Identificacion'=>$data['per_Identificacion']];
-        return $this->getModel()->where('Per_ID',$id)->update($dataPer);
+        $flag = true;
+        try {
+            //code...
 
+            $Estudent = new EstudiantePost();
+            $dataStudentUpdate= [
+                'per_Identificacion'=>$data['per_Identificacion'],
+                'per_Nombre' => $data['per_Nombre'],
+                'per_Apellido' => $data['per_Apellido']
+            ];
+
+            if($this->getModel()->where('Per_ID',$id)->update($dataStudentUpdate)){
+
+                $Estudent->update($data,$id);
+            } 
+
+            return $flag;
+            
+        } catch (\Throwable $th) {
+            //throw $th;
+            return !$flag;
+        }
         
+
+        return $flag;
     }
 
     public function finById($id)
     {
-        if (null== $post = $this->getModel()->find($id)) {
+        if (null== $post = $this->getModel()->where('Per_ID','=',$id)) {
 
             throw new ModelNotFoundException("Post Not Found");
         }
 
         return $post;
-    }
+    } 
 }
 

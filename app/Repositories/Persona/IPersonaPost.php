@@ -5,4 +5,5 @@ use Repositories\BasePersistencia\IBasePersistencia;
 interface IPersonaPost extends IBasePersistencia {
 
 
+
 }

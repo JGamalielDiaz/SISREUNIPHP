@@ -1,7 +1,6 @@
 <?php
 namespace App\Repositories;
 use App\Models\EntidadGenero;
-use Exception;
 
 class GeneroPost {
 
@@ -11,10 +10,6 @@ class GeneroPost {
 
     public function all(){
 
-
         return $this->getModel()->all();
-       
-            
-        
     }
 }

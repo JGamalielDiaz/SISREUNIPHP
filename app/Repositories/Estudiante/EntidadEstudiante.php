@@ -17,5 +17,5 @@ class EntidadEstudiante extends Model
         'est_Estado'
     ];
 
-    protected $guarded = ['Estu_ID'];
+    protected $guarded = ['Est_ID'];
 }

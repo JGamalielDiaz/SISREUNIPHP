@@ -31,13 +31,13 @@ class UserController extends Controller
 
     public function index()
     {
-        
+        //
         $users = DB::table('tbl_persona AS per')
                     ->join ('users','users.Per_ID','=','per.Per_ID')
                     ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','users.id')
                     ->get();
 
-        return view('user.showUser',compact('users'));
+        return view('user.visualizarUsuarios',compact('users'));
     }
 
     /**
@@ -51,7 +51,7 @@ class UserController extends Controller
         $roles = Role::pluck('name','id');
         $permission = Permission::get();
  
-        return view('user.createUser',compact('roles','permission'));
+        return view('user.crearUsuario',compact('roles','permission'));
 
     }
 
@@ -102,7 +102,7 @@ class UserController extends Controller
 
         $roles= Role::get();
 
-        return view('user.editUser',compact('user','roles'));
+        return view('user.editarUsuario',compact('user','roles'));
     }
 
     /**
@@ -120,7 +120,7 @@ class UserController extends Controller
 
         $user->roles()->sync($request->get('roles'));
 
-        return redirect()->route('users.show',$user->id)->with('info','Usuario Actualizado con exito');
+        return redirect()->route('users.visualizarUsuarios',$user->id)->with('info','Usuario Actualizado con exito');
     }
 
     /**

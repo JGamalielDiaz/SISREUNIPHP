@@ -4,35 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Sistema de Residencia UNI</title>
-    <link rel="icon" type="image/x-icon" href="{{asset('LayoutAssets/assets/img/favicon.ico')}}"/>
-    <link href="{{asset('LayoutAssets/assets/css/modal.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('LayoutAssets/assets/css/loader.css')}}" rel="stylesheet" type="text/css" />
-    <script src="{{asset('LayoutAssets/assets/js/loader.js')}}"></script>
+    <meta name="csrf-token" content="{{csrf_token()}}">
+    <title>SISREUNI</title>
+    {{-- <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}"/> --}}
+    <link href="{{asset('css/cssLayout/loader.css')}}" rel="stylesheet" type="text/css" />
+    
+    <script src="{{asset('js/jsLayout/loader.js')}}"></script>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="{{asset('LayoutAssets/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('LayoutAssets/assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
-
-    
-
-    <link rel="stylesheet" href="css/helpbutton.css">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> --}}
+    <link href="{{asset('bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('bootstrap/glyphicons.css')}}" rel="stylesheet" type="text/css" >
+    <link href="{{asset('css/cssLayout/plugins.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="{{asset('LayoutAssets/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('LayoutAssets/assets/css/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="LayoutAssets/assets/css/forms/theme-checkbox-radio.css">
-    <!-- Se agrega una referencia a Fontaweson, para usar iconos -->
-    <script src="https://kit.fontawesome.com/6f35b79a88.js" crossorigin="anonymous"></script>
+    {{-- <link href="{{asset('css/cssLayout/apexcharts.css')}}" rel="stylesheet" type="text/css"> --}}
+    <link href="{{asset('css/cssLayout/dash_1.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link rel="stylesheet" href="{{asset("css/helpbutton.css")}}">
+    <link href="{{asset('css/modal.css')}}" rel="stylesheet" type="text/css" />
+    {{-- Inicio de renderizado de estilos de vistas --}}
     @yield('Style')
+    {{-- final del renderizado de estilos de vistas --}}
+
 </head>
 <body>
-    
-    
-    
-
     <!-- BEGIN LOADER -->
     <div id="load_screen"> <div class="loader"> <div class="loader-content">
         <div class="spinner-grow align-self-center"></div>
@@ -48,7 +45,8 @@
                 <li class="nav-item align-self-center page-heading">
                     <div class="page-header">
                         <div class="page-title">
-                            <img src="{{asset('LayoutAssets/assets/img/UNIlogo.png')}}" class="navbar-logo" alt="logo">
+                            <img src="{{asset('../img/UNIlogo.png')}}" class="navbar-logo" alt="logo">
+                            {{-- //logouni --}}
                         </div>
                     </div>
                 </li>
@@ -76,7 +74,8 @@
 
                                     <div class="media">
                                         <div class="user-img">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
+                                            <img class="usr-img rounded-circle" alt="profile"> 
+                                            {{-- img 90x90 --}}
                                         </div>
                                         <div class="media-body">
                                             <div class="">
@@ -93,7 +92,8 @@
 
                                     <div class="media">
                                         <div class="user-img">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
+                                            <img class="usr-img rounded-circle" alt="profile">
+                                            {{-- img 90x90 --}}
                                         </div>
                                         <div class="media-body">
                                             <div class="">
@@ -110,7 +110,8 @@
 
                                     <div class="media">
                                         <div class="user-img">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
+                                            <img class="usr-img rounded-circle" alt="profile">
+                                            {{-- img 90x90 --}}
                                         </div>
                                         <div class="media-body">
                                             <div class="">
@@ -170,7 +171,7 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="">
                             <div class="dropdown-item">
-                            <a class="" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{{ auth()->user()->name}}</a>
+                                <a class="" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{{ auth()->user()->username}}</a>
                             </div>
                             <div class="dropdown-item">
                                 <a class="" href="apps_mailbox.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> Inbox</a>
@@ -183,22 +184,16 @@
                                     @csrf
                                     <button class="btn btn-danger btn-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sign Out</buttons>
                                 </form>
-                                
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> 
             </ul>
         </header>
     </div>
     <!--  END NAVBAR  -->
 
-    {{-- HELP BUTTON --}}
-
-    <div class="help-button">
-        <a id="btn_help" href="#"><span class="glyphicon glyphicon-question-sign"></span></a>
-    </div>
-    {{-- HELP BUTTON END --}}
+    
 
     <!--  BEGIN MAIN CONTAINER  -->
     <div class="main-container" id="container">
@@ -213,68 +208,74 @@
 
                 <ul class="navbar-nav theme-brand flex-row  text-center">
                     <li class="nav-item theme-logo">
-                        <a href="index.html">
-                            <img src="{{asset('LayoutAssets/assets/img/DBElogo.png')}}" class="navbar-logo" alt="logo">
+                        <a href="#">
+                            <img src="{{asset('../img/DBElogo.png')}}" class="navbar-logo" alt="logo">
+                            {{-- logoDBE --}}
                         </a>
                     </li>
                     <li class="nav-item theme-text">
-                        <a href="index.html" class="nav-link"> SISREUNI </a>
+                        <a href="#" class="nav-link"> SISRE UNI </a>
                     </li>
                     <li class="nav-item toggle-sidebar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left sidebarCollapse"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     </li>
                 </ul>
+               
+                <li class="menu menu-heading">
                 <div class="shadow-bottom"></div>
+                
                 <ul class="list-unstyled menu-categories" id="accordionExample">
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>ENCARGADO</span></div>
                     </li>
+                    
                     <li class="menu active">
-                        
-                        <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                        <a href="#estudiante" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                <span>Gestion Estudiante</span>
+                                <span>Gestion de Estudiantes</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
+                        <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled show" id="estudiante" data-parent="#accordionExample">
                             <li class="active">
+                                
                                 @can('student.Iregistro')
-                                 <a href="{{route("student.Iregistro")}}"> Nuevo Estudiante </a>
-                                @endcan
+                                    
+                                    <a href="{{route("student.Iregistro")}}"> Registrar Nuevo <br> Estudiante</a>
                                 
+                                @endcan
                             </li>
+
                             <li>
+
                                 @can('student.Iedit')
-                                 <a href="{{route("student.Iedit")}}"> Listado de Estudiantes</a>
-                                @endcan
-                            </li>
-                            <li>
-                               
-                                <a href="{{route("Asignaciones")}}">Roles Aseo</a>
+                                    
+                                    <a href="{{route("student.Iedit")}}"> Visualizar Listado de <br> Estudiantes </a>
                                 
+                                @endcan
                             </li>
                         </ul>
-                    </li>
+                    </li>  
+
                     <li class="menu">
-                        <a href="#elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#aseo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                                <span>Gestionar Asignaciones de Aseo</span>
+                                <span>Asignaciones de Aseo</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="elements" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="aseo" data-parent="#accordionExample">
                             <li>
-                                <a href="#"> Nueva Asignacion de Aseo</a>
+                                <a href="#"> Nueva Asignacion de <br> Aseo</a>
                             </li>
                             <li>
-                                <a href="#"> Asignar Aseo Por Nº. de Cuarto </a>
+                                <a href="{{route("Asignaciones")}}"> Calendario de <br> Asignaciones </a>
                             </li>
                             <li>
                                 <a href="#">Editar Asignaciones </a>
@@ -282,50 +283,23 @@
                                                       
                         </ul>
                     </li>
-                   
+
+
+                    {{-- otro submenu --}}
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>ADMINISTRADOR</span></div>
                     </li>
-
                     <li class="menu">
-                        <a href="#components" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                                <span>Gestionar Roles</span>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                            </div>
-                        </a>
-                        <ul class="collapse submenu list-unstyled" id="components" data-parent="#accordionExample">
-                            <li>
-                                @can('roles.create')
-                                 <a href="{{route('roles.create')}}"> Nuevos Roles</a>
-                                @endcan
-                            
-                            </li>
-                            <li>
-                                @can('roles.show')
-                                 <a href="{{route('roles.show')}}"> Mostrar y Editar Roles  </a>
-                                @endcan
-                                
-                            </li>
-                                                       
-                        </ul>
-                    </li>
-
-
-                    <li class="menu">
-                        <a href="#elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#usuarios" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                                <span>Gestionar Usuarios</span>
+                                <span>Gestionar Usuarios del <br> Sistema</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="elements" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="usuarios" data-parent="#accordionExample">
                             <li>
                                 @can('user.create')
                                  <a href="{{route('user.create')}}"> Nuevo Usuario </a>
@@ -334,19 +308,44 @@
                             </li>
                             <li>
                                 @can('users.show')
-                                 <a href="{{route('users.show')}}"> Mostrar y Editar Usuarios </a>
+                                 <a href="{{route('users.show')}}"> Visualizar y <br> Modificar Informacion </a>
                                 @endcan
                                 
                             </li>
                             <li>
-                                <a href="#"> Cambiar Contraseña Usuario </a>
+                                <a href="#"> Cambiar Contraseña  de <br> Usuarios </a>
                             </li>
                                                
                         </ul>
                     </li>
 
+                    <li class="menu">
+                        <a href="#permisos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                <span>Gestionar Roles</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="permisos" data-parent="#accordionExample">
+                            <li>
+                                @can('roles.create')
+                                 <a href="{{route('roles.create')}}"> Nuevos Roles</a>
+                                @endcan
+                            
+                            </li>
+                            <li>
+                                @can('roles.show')
+                                 <a href="{{route('roles.show')}}"> Visualizar y <br> modificar Asignaciones  </a>
+                                @endcan
+                                
+                            </li>
+                                                       
+                        </ul>
+                    </li>
                 </ul>
-                
             </nav>
 
         </div>
@@ -355,17 +354,23 @@
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
+                {{-- HELP BUTTON --}}
+                <div class="help-button">
+                    <a id="btn_help" href="#"><span class="glyphicon glyphicon-question-sign"></span></a>
+                </div>
+                {{-- HELP BUTTON END --}}
 
-                
-                
+                {{-- Renderizado de las demas vistas --}}
+
                 @yield('Content')
+
 
 
             </div>
 
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright SISREUNI © 2020 <a target="_blank" href="https://www.uni.edu.ni">UNI</a>, All rights reserved.</p>
+                    <p class="">Copyright © 2020 <a target="_blank" href="https://designreset.com">DesignReset</a>, All rights reserved.</p>
                 </div>
                 <div class="footer-section f-section-2">
                     <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
@@ -379,25 +384,27 @@
     <!-- END MAIN CONTAINER -->
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="{{asset('LayoutAssets/assets/js/libs/jquery-3.1.1.min.js')}}"></script>
-    <script src="{{asset('LayoutAssets/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('LayoutAssets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('LayoutAssets/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{asset('LayoutAssets/assets/js/app.js')}}"></script>
-
-    @yield('Scripts')
+    <script src="{{asset('js/jsLayout/jquery-3.1.1.min.js')}}"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> --}}
+    <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+    <script src="{{asset('bootstrap/popper.min.js')}}"></script>
+    <script src="{{asset('js/jsLayout/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('js/jsLayout/app.js')}}"></script>
 
     <script>
+
         $(document).ready(function() {
             App.init();
         });
     </script>
-    <script src="{{asset('LayoutAssets/assets/js/custom.js')}}"></script>
+    <script src="{{asset('js/jsLayout/custom.js')}}"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
+    @yield('Scripts')
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="{{asset('LayoutAssets/plugins/apex/apexcharts.min.js')}}"></script>
-    <script src="{{asset('LayoutAssets/assets/js/dashboard/dash_1.js')}}"></script>
+    {{-- <script src="{{asset('js/jsLayout/apexcharts.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('js/jsLayout/dash_1.js')}}"></script> --}}
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 
 </body>

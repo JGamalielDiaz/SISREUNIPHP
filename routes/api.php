@@ -1,15 +1,12 @@
 <?php
 
-use App\Repositories\Estudiante\EntidadEstudiante;
 use App\Repositories\Persona\EntidadPersona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Repositories\Persona\PersonaPost;
-use Symfony\Component\VarDumper\Cloner\Data;
-use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\DataTables;
-use Yajra\DataTables\QueryDataTable;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,25 +22,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('EstuList',function(){
+Route::get('AllStudent',function(){
 
-    $data = DB::table('TBL_Persona AS per')
-    ->join('TBL_Estudiante AS estu','per.Per_ID','=','estu.Est_ID')
-    ->select('per.Per_ID','per.per_Nombre','per.per_Apellido','per.per_Identificacion','estu.est_Carnet')
-    ->get();
-    return Datatables($data)
-            ->addColumn('btn',function($data){
-                return '<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>';
-            })
-            ->rawColumns(['btn'])
-            ->toJson();
+    $data = DB::table('TBL_Persona')
+        ->join('TBL_Estudiante','TBL_Persona.Per_ID','=','TBL_Estudiante.Est_ID')
+        ->select('TBL_Persona.Per_ID as Per_ID','TBL_Persona.per_Nombre as per_Nombre','TBL_Persona.per_Apellido as per_Apellido','TBL_Persona.per_Identificacion as per_Identificacion','TBL_Estudiante.est_Carnet as est_Carnet');
+        //yajra  en el select si no coincide con el nombre del column name de ajax, no funciona el serverside    
+            
+    return (DataTables::of($data)
+        ->addColumn('btnEdit',function($data){
+            return ('<a href="'.(route('student.edit',$data->Per_ID)).'" id="'.$data->Per_ID.'" class="edit btn btn-primary">Editar</a>');
+        })
+        ->rawColumns(['btnEdit'])
+        ->toJson());
 });
 
 Route::get('RolesPendientes',function(){
 
     $data = DB::table('tbl_persona AS per')
     ->join('TBL_Estudiante AS estu','per.Per_ID','=','estu.Est_ID')
-
     ->join('tbl_histoestucuarto as hsc','estu.Est_ID','=','hsc.Est_ID')
     ->join('tbl_cuarto as cua','hsc.Cuar_ID','=','cua.Cuar_ID')
     ->join('tbl_usuario as usu','hsc.Usu_ID','=','usu.Usu_ID')
@@ -56,20 +53,39 @@ Route::get('RolesPendientes',function(){
     return Datatables($data)->addColumn('btn',function($data){
         return '<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>';
     })
+    
     ->rawColumns(['btn'])
+    
     ->toJson();       
+});
+
+Route::get('getGen',function(){
+
+    
+
+    return response()->json(['women'=>(EntidadPersona::getGenderID(1)),'men'=>(EntidadPersona::getGenderID(2))]);
 });
 
 Route::get('editUser',function(){
 
-    $data = DB::table('tbl_persona AS per')
-    ->join('users', 'users.Per_ID','=','per.Per_ID')
-    ->select('per.Per_ID','per.per_Nombre','per_Apellido','users.name')
-    ->get();
-    return Datatables($data)->addColumn('btn',function($data){
-        return '<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>';
-    })
-    ->rawColumns(['btn'])
-    ->toJson();
+    try {
+        //code...
+        $data = DB::table('tbl_persona AS per')
+        ->join('users', 'users.Per_ID','=','per.Per_ID')
+        ->select('per.Per_ID','per.per_Nombre','per_Apellido','users.name')
+        ->get();
+        return Datatables($data)
+        ->addColumn('btn',function($data){
+            return ('<a href="#" id="'.$data->Per_ID.'" class="edit btn btn-primary" data-target="#ModalUpdate">Editar</a>');
+        })
+        ->rawColumns(['btn'])
+        ->toJson();
+
+    } catch (\Throwable $th) {
+        //throw $th;
+
+        throw new Exception($th->getMessage());
+    }
+    
 
 });

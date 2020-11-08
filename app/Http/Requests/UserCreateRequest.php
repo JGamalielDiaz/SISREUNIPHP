@@ -30,7 +30,7 @@ class UserCreateRequest extends FormRequest
             'per_Apellido' => 'required',
             'roles'=> 'required',
             'password'=> 'required',
-            'name'=> 'required',
+            'username'=> 'required',
             // 'permission'=> 'required',
             'email' => 'required'
         ];

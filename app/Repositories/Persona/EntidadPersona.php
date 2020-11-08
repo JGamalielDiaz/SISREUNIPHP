@@ -20,9 +20,17 @@ class EntidadPersona extends Model
         'per_Estado'
     ];
 
-    public function allsd()
-    {
-        return DB::table('TBL_Persona')->select('*');
+    protected $guarded = ['Per_ID'];
+
+    public static function getGenderID($id){
+
+        $countGender = DB::table('TBL_Persona')
+                ->where('Gen_ID','=',$id)
+                ->select('Gen_ID')
+                ->count('*');
+
+        return $countGender;
     }
 
+ 
 }

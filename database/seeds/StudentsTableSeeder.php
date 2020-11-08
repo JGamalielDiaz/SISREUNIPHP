@@ -13,6 +13,6 @@ class StudentsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(EntidadEstudiante::class,400)->create();
+        factory(EntidadEstudiante::class,300)->create();
     }
 }
