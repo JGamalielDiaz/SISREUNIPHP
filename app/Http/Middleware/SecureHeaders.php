@@ -22,7 +22,7 @@ class SecureHeaders
         $response->headers->set('X-XSS-Protection', '1; mode=block');
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
         $response->headers->set('Strict-Transport-Security', 'max-age:31536000; includeSubDomains');
-        $response->headers->set('Content-Security-Policy', "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://code.ionicframework.com https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css; script-src 'self' 'unsafe-inline'"); // Esta cabecera si depende mucho de tu aplicación (Leer más después del código)
+        $response->headers->set('Content-Security-Policy', "style-src 'self' 'unsafe-inline'  https://fonts.googleapis.com https://code.ionicframework.com https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css; script-src 'self' 'unsafe-inline'; img-src 'self'; frame-ancestors 'self'"); // Esta cabecera si depende mucho de tu aplicación (Leer más después del código)
         return $response;
     }
     private function removerCabecerasNoAdmitidas($listaCabeceras)

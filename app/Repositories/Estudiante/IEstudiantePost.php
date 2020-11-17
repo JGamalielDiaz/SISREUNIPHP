@@ -8,5 +8,5 @@ interface IEstudiantePost extends IBasePersistencia{
 
     public function getInfoToEdit($id);
 
-    public function getIinfoFilter(array $request);
+    public function getInfoFilter(array $data);
 }

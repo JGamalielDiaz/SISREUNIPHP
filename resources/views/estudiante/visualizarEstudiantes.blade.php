@@ -127,7 +127,7 @@
                 <div class="col-md-6">
                   <br>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-6">
                   <button id="filterbtn" class="btn btn-primary btn-sm">Filtro avanzado</button>
                 </div>
               </div>
@@ -149,15 +149,17 @@
                       </div>
                     </div>
                     <div class="widget-content widget-content-area" >
-                      <form class="form-horizontal">
+                      <form id="filterForm"  class="form-horizontal" accept-charset="utf-8">
                         @csrf
                         <div class="row">
                           <div class="col-md-12">
                             <div class="form-group row">
                               <label class="col-sm-12 col-form-label" for=""> filtrar Por Carne</label>
                               <div class="col-sm-12">
-                                <select id="carnetSelect" class="form-control tagging" multiple="multiple">
-                                 
+                                <select id="carnet" name="Carnet[]" class="form-control tagging" multiple="multiple">
+                                  <option>seleccione un opcion</option>
+                                 <option value="2020">2020</option>
+                                 <option value="2021">2021</option>
                                 </select>
                               </div>
                             </div>
@@ -166,7 +168,7 @@
                             <div class="form-group row">
                               <label class="col-sm-12 col-form-label" for="">Filtrar por Carrera</label>
                               <div class="col-sm-12">
-                                <select name="carrera[]" class="form-control tagging" multiple="multiple">
+                                <select id="Car_ID" name="Car_ID[]" class="form-control tagging" multiple="multiple">
                                   @foreach ($carreras as $key => $value)
                                     <option value="{{$key}}">{{$value}}</option>
                                   @endforeach
@@ -179,7 +181,8 @@
                             <div class="form-group row">
                               <label class="col-sm-12 col-form-label" for="">Filtrar por Genero</label>
                               <div class="col-sm-12">
-                                <select class="form-control tagging">
+                                <select id="Gen_ID" name="Gen_ID" class="form-control tagging" multiple="multiple">
+                                   <option >seleccione un opcion</option>
                                   @foreach ($generos as $key => $value)
                                     <option value="{{$key}}">{{$value}}</option>
                                   @endforeach
@@ -252,16 +255,14 @@
     <script src="{{asset('js/button-ext/buttons.print.min.js')}}"></script>
     <script src="{{asset('plugins/select2/select2.min.js')}}"></script>
     <script src="{{asset('plugins/select2/custom-select2.js')}}"></script>
+    <script src="{{asset('js/visualizarEstudiante.js')}}"></script>
     
     
   <script>
     $(document).ready(function() {
-      
-      const filterContent = document.querySelector('#filterContent');
-      const filterBtn = document.querySelector('#filterbtn');
-      const saveFilterBtn = document.querySelector('#saveFilter');
-      let womenCount = document.querySelector('#womenIn');
-      let menCount = document.querySelector('#menIn');
+
+      visualizarEstudiante.init();
+
 
       $(".tagging").select2({
         placeholder: "Has una Eleccion",
@@ -270,74 +271,6 @@
         maximumSelectionLength: 3
       });
 
-      $.ajaxSetup({
-          headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
-      });
-
-
-      $.ajax({
-          url: "{{url('api/getGen')}}",
-          method: 'GET',
-          success: function({women,men}){
-            womenCount.innerHTML = women;
-            menCount.innerHTML = men                      
-          },
-
-      });
-
-      FillDataTable();
-    
-
-      function FillDataTable(){
-          //DATATABLE
-
-          $('#EstuList').DataTable({
-              // dom:"<'row'<'col-md-6'l>>",
-              processing: true,
-              serverSide: true,
-              dom: '<"row"<"col-md-6"l>><"row"<"col-md-12"<"row"<"col-md-6"B><"col-md-6"f> > ><"col-md-12"rt> <"col-md-12"<"row"<"col-md-5"i><"col-md-7"p>>>>',
-              buttons: {
-                  buttons: [
-                      { extend: 'csv', className: 'btn' },
-                      { extend: 'excel', className: 'btn' },
-                      { extend: 'print', className: 'btn' },
-                  ]
-              },
-              "pageLength": 10,
-              "lengthMenu": [[10, 20, 50,-1],[10, 20, 50,'All']],
-              
-              destroy:true,
-              "ajax":"{{url('api/AllStudent')}}",
-              
-              "columns":[
-                  {data: 'Per_ID'},
-                  {data: 'per_Nombre'},
-                  {data: 'per_Apellido'},
-                  {data: 'per_Identificacion'},
-                  {data: 'est_Carnet'},
-                  {data: 'btnEdit',orderable:false, searchable:false},
-                  // {data: 'eliminar',orderable:false, searchable:false}
-                  
-              ]
-          });  
-
-      }
-      
-      const filterInfo = () => {
-        const optionScrollView= {alignToTop: true, behavior: "smooth"};
-        filterBtn.addEventListener('click', () => {
-          if (filterContent.style.display === "none") {
-            filterContent.style.display = "block";
-            filterContent.classList.add('animate__animated','animate__fadeInDown');
-            saveFilterBtn.scrollIntoView(optionScrollView);
-            
-          } else {
-            filterContent.style.display = "none";
-          }
-        })
-      }
-
-      filterInfo();
     });
   </script>
 @endsection

@@ -8,11 +8,15 @@ use App\Models\EntidadDepartamento;
 use App\Models\EntidadGenero;
 use App\Models\EntidadMunicipio;
 use App\Http\Requests\EstuUpdateRequest;
+use App\Http\Requests\filterRequest;
 use App\Http\Requests\saveStudentRequest;
+use Dotenv\Result\Result;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Repositories\Persona\IPersonaPost;
 use Repositories\Estudiante\EstudiantePost as EstudianteEstudiantePost;
+use Yajra\DataTables\DataTables;
 
 class EstudianteController extends Controller
 {
@@ -142,6 +146,40 @@ class EstudianteController extends Controller
         // dd($ban);
 
         return redirect()->back()->with('Message','Usuario Creado Con Exito!');
+        
+    }
+
+    public function filterResult(filterRequest $request){
+
+        
+
+        // dd($option);
+
+        if($request->ajax()){
+
+    
+
+            $data = new EstudianteEstudiantePost();
+            $data = $data->getInfoFilter($request->validated());
+
+            if( $data === null ) { return response()->json(['info' =>'error vacio']); }
+
+            // dd($data);
+
+            // return response()->json($data);
+
+            return (DataTables::of($data)
+                        ->addColumn('btnEdit',function($data){
+                            return ('<a href="'.(route('student.edit',$data->Per_ID)).'" id="'.$data->Per_ID.'" class="edit btn btn-primary">Editar</a>');
+                        })
+                    ->rawColumns(['btnEdit'])
+                    ->toJson());
+
+
+        }
+
+        
+
         
     }
 

@@ -67,9 +67,143 @@ class EstudiantePost implements IEstudiantePost {
         return $infoStudentEdit;
     }
 
-    public function getIinfoFilter(array $data){
-        $carnetFilter = ($data['carnetFilter'])?:false;
-        $carreraFilter = ($data['carreraFilter'])?:false;
-        $generoFilter = ($data['generoFilter'])?:false;
+    public function getInfoFilter(array $data)
+    {
+        
+        $carreras = isset($data['Car_ID'])?$data['Car_ID']:0;
+        $carnet = isset($data['Carnet'])?$data['Carnet']:0;
+        $generos = isset($data['Gen_ID'])?$data['Gen_ID']:0;
+        $option = isset($data['option'])?$data['option']:'No Data';
+        
+
+        // dd($generos);
+        // $response = null;
+
+        switch ($option) {
+            case 'genero':
+                # code...
+                
+
+                $response = DB::table('tbl_persona')
+                            ->join('tbl_estudiante','tbl_estudiante.Est_ID','=','tbl_persona.Per_ID')
+                            ->whereIn('tbl_persona.Gen_ID',$generos)
+                            ->select('tbl_persona.Per_ID as Per_ID','tbl_persona.per_Nombre as per_Nombre','tbl_persona.per_Apellido as per_Apellido','tbl_persona.per_Identificacion as per_Identificacion','tbl_estudiante.est_Carnet as est_Carnet');
+                            
+                
+
+            break;
+
+            case 'carrera':
+
+                $response = DB::table('tbl_persona as persona')
+                            ->join('tbl_estudiante as estudiante','estudiante.Est_ID','=','persona.Per_ID')
+                            ->whereIn('estudiante.Car_ID',$carreras)
+                            ->select('persona.Per_ID as Per_ID','persona.per_Nombre as per_Nombre','persona.per_Apellido as per_Apellido','persona.per_Identificacion as per_Identificacion','estudiante.est_Carnet as est_Carnet');
+            
+            break;
+
+            case 'carnet':
+                $response = DB::table('tbl_persona')
+                ->join('tbl_estudiante','tbl_estudiante.Est_ID','=','tbl_persona.Per_ID')
+                ->where(function($query) use ($carnet){
+
+                    if(is_array($carnet)){
+                        $query->whereIn((DB::raw('substr(tbl_estudiante.est_Carnet,1,4)')),$carnet);
+                    }
+                    else{
+                        $query->where((DB::raw('substr(tbl_estudiante.est_Carnet,1,4)')),'=', $carnet);
+                    }
+                })
+                ->select('tbl_persona.Per_ID as Per_ID','tbl_persona.per_Nombre as per_Nombre','tbl_persona.per_Apellido as per_Apellido','tbl_persona.per_Identificacion as per_Identificacion','tbl_estudiante.est_Carnet as est_Carnet');
+    
+
+            break;
+
+            case 'all':
+                $response = DB::table('tbl_persona as persona')
+                            ->join('tbl_estudiante as estudiante','estudiante.Est_ID','=','persona.Per_ID')
+                            ->whereIn('persona.Gen_ID',[1,2])
+                            ->where(function($query) use ($carreras){
+
+                                if(is_array($carreras)){
+                                    $query->whereIn('estudiante.Car_ID',$carreras);
+                                }
+                                else{
+                                    $query->where('estudiante.Car_ID','=',$carreras);
+                                }
+                                
+                            })
+                            ->select('persona.Per_ID as Per_ID','persona.per_Nombre as per_Nombre','persona.per_Apellido as per_Apellido','persona.per_Identificacion as per_Identificacion','estudiante.est_Carnet as est_Carnet');
+            
+
+            break;
+
+            case 'generoCarreras':
+
+                $response = DB::table('tbl_persona as persona')
+                            ->join('tbl_estudiante as estudiante','estudiante.Est_ID','=','persona.Per_ID')
+                            ->whereIn('persona.Gen_ID',[1,2])
+                            ->where(function($query) use ($carreras,$generos){
+
+                                if(is_array($carreras) && is_array($generos)){
+                                    $query->whereIn('estudiante.Car_ID',$carreras);
+                                    $query->whereIn('persona.Gen_ID',$generos);
+                                }
+                                else{
+                                    $query->where('estudiante.Car_ID','=',$carreras);
+                                    $query->where('persona.Gen_ID','=',$generos);
+                                }
+                                
+                            })
+                            ->select('persona.Per_ID as Per_ID','persona.per_Nombre as per_Nombre','persona.per_Apellido as per_Apellido','persona.per_Identificacion as per_Identificacion','estudiante.est_Carnet as est_Carnet');
+
+            break;
+
+            case 'generoCarnet':
+
+                $response = DB::table('tbl_persona as persona')
+                            ->join('tbl_estudiante as estudiante','estudiante.Est_ID','=','persona.Per_ID')
+                            ->where(function($query) use ($carnet,$generos){
+
+                                if(is_array($carnet) && is_array($generos)){
+                                    $query->whereIn('estudiante.est_Carnet',$carnet);
+                                    $query->whereIn('persona.Gen_ID',$generos);
+                                }
+                                else{
+                                    $query->where('estudiante.est_Carnet','=',$carnet);
+                                    $query->where('persona.Gen_ID','=',$generos);
+                                }
+                                
+                            })
+                            ->select('persona.Per_ID as Per_ID','persona.per_Nombre as per_Nombre','persona.per_Apellido as per_Apellido','persona.per_Identificacion as per_Identificacion','estudiante.est_Carnet as est_Carnet');
+
+            break;
+
+            case 'carreraCarnet':
+
+                $response = DB::table('tbl_persona as persona')
+                            ->join('tbl_estudiante as estudiante','estudiante.Est_ID','=','persona.Per_ID')
+                            ->whereIn('persona.Gen_ID',[1,2])
+                            ->where(function($query) use ($carreras,$carnet){
+
+                                if(is_array($carreras) && is_array($carnet)){
+                                    $query->whereIn('estudiante.Car_ID',$carreras);
+                                    $query->whereIn('estudiante.est_Carnet',$carnet);
+                                }
+                                else{
+                                    $query->where('estudiante.Car_ID','=',$carreras);
+                                    $query->where('estudiante.est_Carnet','=',$carnet);
+                                }
+                                
+                            })
+                            ->select('persona.Per_ID as Per_ID','persona.per_Nombre as per_Nombre','persona.per_Apellido as per_Apellido','persona.per_Identificacion as per_Identificacion','estudiante.est_Carnet as est_Carnet');
+
+            break;
+        
+        }
+
+        return $response;
     }
+
+    
 }

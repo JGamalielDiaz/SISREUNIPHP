@@ -35,7 +35,7 @@ Route::get('AllStudent',function(){
         })
         ->rawColumns(['btnEdit'])
         ->toJson());
-});
+})->name('lista');
 
 Route::get('RolesPendientes',function(){
 

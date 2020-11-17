@@ -1,5 +1,6 @@
 <?php
 
+use Caffeinated\Shinobi\Contracts\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::get('Estudent/{id}/edit','EstudianteController@edit')->name('student.edit
 Route::post('Estudent/{id}','EstudianteController@update')->name('student.update')->middleware('can:student.Iedit');
 
 // Auth::routes();
+
+Route::post('test','EstudianteController@filterResult')->name('test');

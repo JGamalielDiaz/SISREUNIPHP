@@ -32,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(120);
+        date_default_timezone_set('America/Managua');
     }
 }
