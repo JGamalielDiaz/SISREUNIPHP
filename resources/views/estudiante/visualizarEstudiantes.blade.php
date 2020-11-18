@@ -9,7 +9,6 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset("css/adminlte.min.css")}}">
  <link rel="stylesheet" href="{{asset('/bootstrap/glyphicons.css')}}">
  <link rel="stylesheet" type="text/css" href="{{asset('css/datatable/datatables.css')}}">
  <link rel="stylesheet" type="text/css" href="{{asset('css/datatable/custom_dt_html5.css')}}">
@@ -18,91 +17,7 @@
  <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
 @section('Content')
-
 <hr>
-<section class="content">
-  <div class="statbox widget box box-shadow">
-    <div class="widget-header">
-      <div class="row">
-        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-          <h4>Informacion Extra</h4>
-        </div>
-      </div>
-    </div>
-    <div class="widget-content widget-content-area">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3 id="womenIn"></h3>
-
-              <p>Total de Mujeres</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-female" style="color:#e743a3"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3 id="menIn"><sup style="font-size: 20px"></sup></h3>
-
-              <p>Total de Varones</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-male" style="color:#4178ee"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      
-      <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-  </div>
-</section>
-<hr>
-
-
 <div>
   <div class="content" >
     <div class="statbox widget box box-shadow">
@@ -149,7 +64,7 @@
                       </div>
                     </div>
                     <div class="widget-content widget-content-area" >
-                      <form id="filterForm"  class="form-horizontal" accept-charset="utf-8">
+                      <form id="filterForm" class="form-horizontal" accept-charset="utf-8">
                         @csrf
                         <div class="row">
                           <div class="col-md-12">

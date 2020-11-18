@@ -23,6 +23,8 @@ Route::post('Login','Auth\LoginController@login')->name('Login');
 Route::post('Logout','Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/carrerinfo', 'HomeController@getTotalStudentForCarrera')->name('carrerInfo');
 //Rutas 
 
 

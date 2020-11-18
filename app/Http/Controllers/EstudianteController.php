@@ -164,10 +164,6 @@ class EstudianteController extends Controller
 
             if( $data === null ) { return response()->json(['info' =>'error vacio']); }
 
-            // dd($data);
-
-            // return response()->json($data);
-
             return (DataTables::of($data)
                         ->addColumn('btnEdit',function($data){
                             return ('<a href="'.(route('student.edit',$data->Per_ID)).'" id="'.$data->Per_ID.'" class="edit btn btn-primary">Editar</a>');

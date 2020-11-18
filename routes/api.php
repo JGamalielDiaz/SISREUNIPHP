@@ -61,8 +61,6 @@ Route::get('RolesPendientes',function(){
 
 Route::get('getGen',function(){
 
-    
-
     return response()->json(['women'=>(EntidadPersona::getGenderID(1)),'men'=>(EntidadPersona::getGenderID(2))]);
 });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Repositories\Carrera\CarreraClass;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Layout.layout');
+        return view('home');
+    }
+
+    public function getTotalStudentForCarrera(Request $request){
+
+        if($request->ajax()){
+
+            $data = new CarreraClass();
+            $data = $data->getCarreraInfo();
+        }
+
+        return response()->json($data);
+        
     }
 }

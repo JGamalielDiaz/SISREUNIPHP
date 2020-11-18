@@ -9,25 +9,13 @@ const visualizarEstudiante= (() => {
     const carnetSelect = document.querySelector('#carnet');
     const carreraSelect = document.querySelector('#Car_ID');
     // const studentTable = document.querySelector('#EstuList');
-    let womenCount = document.querySelector('#womenIn');
-    let menCount = document.querySelector('#menIn');
+
 
     $.ajaxSetup({
         headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
     });
  
-    const getGenderToView = ()=>{
-
-        $.ajax({
-            url: "api/getGen",
-            method: 'GET',
-            success: function({women,men}){
-            womenCount.innerHTML = women;
-            menCount.innerHTML = men                      
-            },
-
-        });
-    }
+    
 
     const fillDataTableStudentList = ()=>{
 
@@ -140,14 +128,13 @@ const visualizarEstudiante= (() => {
     }
     const initilize = ()=>{
         const optionScrollView= {alignToTop: true, behavior: "smooth"}; //optionsToscrollIntoView, see info about scrollIntoView
-        getGenderToView();
+        
         fillDataTableStudentList();
         showFilterForm();
 
         $('#saveFilter').click((event)=>{
 
             event.preventDefault();
-            filterContent.classList.add('animate__animated','animate__fadeOutUp');
             filterContent.style.display = "none";
             tableEst.scrollIntoView(optionScrollView);
 
